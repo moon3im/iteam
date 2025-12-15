@@ -13,7 +13,14 @@ import {
   MapPin,
   Globe,
   ArrowUpRight,
-  Sparkles
+  Sparkles,
+  Home,
+  Option,
+  Rocket,
+  User,
+  Users,
+  PhoneCall,
+  Star
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -28,11 +35,10 @@ export default function Header() {
   }, []);
 
   const navLinks = [
-    { name: "Home", href: "/", icon: "🏠" },
-    { name: "Services", href: "/services", icon: "⚡" },
-    { name: "Projects", href: "/projects", icon: "🚀" },
-    { name: "About", href: "/about", icon: "🌟" },
-    { name: "Contact", href: "/contact", icon: "📞" },
+    { name: "Home", href: "/", icon: <Home className="w-4 h-4" /> },
+    { name: "Services", href: "/services",icon : <Star className="w-4 h-4" /> },
+    { name: "About", href: "/about", icon: <Users className="w-4 h-4" /> },
+    { name: "Contact", href: "/contact", icon: <PhoneCall className="w-4 h-4" /> },
   ];
 
   const contactInfo = [
@@ -47,7 +53,7 @@ export default function Header() {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className={cn(
-        "fixed left-1/2 top-2 -translate-x-1/2 z-50 w-[95%] max-w-7xl rounded-2xl transition-all duration-300",
+        "fixed left-1/2 top-2 -translate-x-1/2 z-50 w-[95%] max-w-7xl rounded-full px-8 transition-all duration-300",
         isScrolled
           ? "bg-linear-to-r from-blue-900/15 to-blue-900/20 backdrop-blur-xl shadow-2xl border border-white/10"
           : "bg-linear-to-r from-blue-900/20 to-transparent backdrop-blur-sm"
@@ -56,13 +62,7 @@ export default function Header() {
       <div className="flex items-center justify-between px-6 py-4 md:py-5">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group">
-          <div className="relative">
-            <div className="absolute -inset-1 bg-linear-to-r from-blue-500 to-cyan-500 rounded-lg blur opacity-30 group-hover:opacity-50 transition-opacity" />
-            <div className="relative px-4 py-2 rounded-lg bg-linear-to-br from-blue-600 to-cyan-600">
-              <span className="text-xl font-bold text-white tracking-wide">ITEAM</span>
-            </div>
-          </div>
-          <Sparkles className="w-5 h-5 text-cyan-400 animate-pulse" />
+          <img src="images/logo.png" alt="Logo" className="w-28" />
         </Link>
 
         {/* Desktop Navigation */}

@@ -1,0 +1,660 @@
+// components/pages/Contact.tsx
+"use client";
+
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { 
+  Mail, 
+  Phone, 
+  MapPin, 
+  Clock, 
+  Globe, 
+  Send,
+  MessageCircle,
+  Calendar,
+  Users,
+  Shield,
+  Zap,
+  ArrowRight,
+  Sparkles,
+  X,
+  CheckCircle,
+  Loader2,
+  Building,
+  Mailbox,
+  PhoneCall,
+  Video,
+  Coffee
+} from "lucide-react";
+import { cn } from "@/lib/utils";
+import { GradientText } from "@/components/ui/GradientText";
+import { GlowingButton } from "@/components/ui/GlowingButton";
+import { TechBackground } from "@/components/ui/TechBackground";
+
+export const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    company: "",
+    phone: "",
+    service: "",
+    message: "",
+    budget: ""
+  });
+  
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    // Simulate API call
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    
+    setIsSubmitting(false);
+    setIsSubmitted(true);
+    
+    // Reset form after 5 seconds
+    setTimeout(() => {
+      setIsSubmitted(false);
+      setFormData({
+        name: "",
+        email: "",
+        company: "",
+        phone: "",
+        service: "",
+        message: "",
+        budget: ""
+      });
+    }, 5000);
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const contactInfo = [
+    {
+      icon: <Phone className="w-6 h-6" />,
+      title: "Phone",
+      value: "+1 (555) 123-4567",
+      subtitle: "Mon-Fri, 9AM-6PM EST",
+      color: "from-blue-500 to-cyan-500"
+    },
+    {
+      icon: <Mail className="w-6 h-6" />,
+      title: "Email",
+      value: "hello@iteam.com",
+      subtitle: "Response within 2 hours",
+      color: "from-purple-500 to-pink-500"
+    },
+    {
+      icon: <MapPin className="w-6 h-6" />,
+      title: "Office",
+      value: "San Francisco, CA",
+      subtitle: "123 Tech Valley",
+      color: "from-cyan-500 to-emerald-500"
+    },
+    {
+      icon: <Clock className="w-6 h-6" />,
+      title: "Hours",
+      value: "24/7 Support",
+      subtitle: "Emergency support available",
+      color: "from-emerald-500 to-green-500"
+    }
+  ];
+
+  const services = [
+    "Web Development",
+    "Mobile Apps",
+    "UI/UX Design",
+    "Cloud Solutions",
+    "AI/ML Solutions",
+    "Security Services",
+    "Consulting",
+    "Other"
+  ];
+
+  const budgets = [
+    "Under $10k",
+    "$10k - $50k",
+    "$50k - $100k",
+    "$100k - $250k",
+    "$250k+"
+  ];
+
+  return (
+    <div className="relative min-h-screen bg-linear-to-br from-gray-900 via-blue-900/20 to-gray-900 text-white overflow-hidden">
+      <TechBackground />
+      
+      {/* Animated Background Elements */}
+      <div className="fixed inset-0 pointer-events-none">
+        {/* Floating Orbs */}
+        <motion.div
+          animate={{
+            x: [0, 100, 0],
+            y: [0, 50, 0],
+            scale: [1, 1.2, 1],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+          className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={{
+            x: [0, -100, 0],
+            y: [0, -50, 0],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"
+        />
+        
+        {/* Animated Circles */}
+        {[...Array(8)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute border border-blue-500/20 rounded-full"
+            style={{
+              left: `${20 + i * 10}%`,
+              top: `${30 + (i % 3) * 20}%`,
+              width: `${100 + i * 50}px`,
+              height: `${100 + i * 50}px`,
+            }}
+            animate={{
+              rotate: 360,
+              scale: [1, 1.1, 1],
+            }}
+            transition={{
+              duration: 30 + i * 5,
+              repeat: Infinity,
+              ease: "linear"
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Hero Section */}
+      <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.2 }}
+              className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-blue-500/10 to-cyan-500/10 backdrop-blur-xl border border-blue-500/20 mb-8"
+            >
+              <MessageCircle className="w-5 h-5 text-cyan-400" />
+              <span className="text-sm font-semibold text-cyan-300">Get In Touch</span>
+            </motion.div>
+            
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-8">
+              Let's <GradientText>Connect</GradientText>
+            </h1>
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+              Ready to transform your ideas into reality? Contact us today and let's build something amazing together.
+            </p>
+          </motion.div>
+
+          {/* Two Column Layout */}
+          <div className="grid lg:grid-cols-2 gap-12 mb-32">
+            {/* Left Column - Contact Info */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="space-y-8"
+            >
+              {/* Contact Cards */}
+              <div className="grid sm:grid-cols-2 gap-6">
+                {contactInfo.map((info, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.1 }}
+                    whileHover={{ y: -5 }}
+                    className="relative p-6 rounded-2xl bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-xl border border-white/10 hover:border-blue-500/30 transition-all duration-300"
+                  >
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className={cn(
+                        "w-12 h-12 rounded-xl flex items-center justify-center",
+                        "bg-gradient-to-br from-white/10 to-white/5",
+                        "border border-white/10"
+                      )}>
+                        <div className={info.color.replace("from-", "text-").split(" ")[0]}>
+                          {info.icon}
+                        </div>
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-white">{info.title}</h3>
+                        <p className="text-sm text-gray-400">{info.subtitle}</p>
+                      </div>
+                    </div>
+                    <p className="text-lg font-semibold text-white">{info.value}</p>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Additional Info */}
+              <div className="space-y-6">
+                <div className="p-6 rounded-2xl bg-gradient-to-br from-blue-500/10 to-cyan-500/10 backdrop-blur-xl border border-blue-500/20">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/20 to-cyan-500/20 flex items-center justify-center">
+                      <Calendar className="w-6 h-6 text-cyan-400" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-white">Quick Response</h3>
+                      <p className="text-sm text-gray-400">We'll get back to you within 2 hours</p>
+                    </div>
+                  </div>
+                  <button className="w-full py-3 rounded-lg bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold hover:opacity-90 transition-opacity">
+                    Schedule a Call
+                  </button>
+                </div>
+
+                <div className="p-6 rounded-2xl bg-gradient-to-br from-purple-500/10 to-pink-500/10 backdrop-blur-xl border border-purple-500/20">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center">
+                      <Video className="w-6 h-6 text-pink-400" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-white">Virtual Meeting</h3>
+                      <p className="text-sm text-gray-400">Free 30-minute consultation</p>
+                    </div>
+                  </div>
+                  <button className="w-full py-3 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold hover:opacity-90 transition-opacity">
+                    Book Virtual Meeting
+                  </button>
+                </div>
+              </div>
+
+              {/* Social Links */}
+              <div className="p-6 rounded-2xl bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-xl border border-white/10">
+                <h3 className="font-bold text-white mb-4">Follow Us</h3>
+                <div className="flex items-center gap-4">
+                  {[
+                    { icon: <Globe className="w-5 h-5" />, label: "Website" },
+                    { icon: <X className="w-5 h-5" />, label: "Twitter" },
+                    { icon: <Building className="w-5 h-5" />, label: "LinkedIn" },
+                    { icon: <Sparkles className="w-5 h-5" />, label: "Instagram" }
+                  ].map((social, idx) => (
+                    <motion.button
+                      key={idx}
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="flex-1 p-3 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 flex flex-col items-center gap-2 transition-colors"
+                    >
+                      {social.icon}
+                      <span className="text-xs text-gray-400">{social.label}</span>
+                    </motion.button>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right Column - Contact Form */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <div className="relative p-8 rounded-3xl bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-xl border border-white/10">
+                {/* Success Message */}
+                <AnimatePresence>
+                  {isSubmitted && (
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.9 }}
+                      className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 to-green-500/20 backdrop-blur-xl rounded-3xl flex items-center justify-center z-10"
+                    >
+                      <div className="text-center p-8">
+                        <motion.div
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          transition={{ type: "spring", stiffness: 200 }}
+                          className="w-20 h-20 rounded-full bg-gradient-to-r from-emerald-500 to-green-500 flex items-center justify-center mx-auto mb-6"
+                        >
+                          <CheckCircle className="w-10 h-10" />
+                        </motion.div>
+                        <h3 className="text-2xl font-bold text-white mb-2">Message Sent!</h3>
+                        <p className="text-gray-300">We'll get back to you within 2 hours.</p>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+
+                <h2 className="text-3xl font-bold mb-2">Send us a message</h2>
+                <p className="text-gray-400 mb-8">Fill out the form below and we'll respond promptly</p>
+
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid sm:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-gray-300">Name *</label>
+                      <div className="relative">
+                        <input
+                          type="text"
+                          name="name"
+                          value={formData.name}
+                          onChange={handleChange}
+                          required
+                          className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-blue-500/50 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all"
+                          placeholder="Your name"
+                        />
+                        <div className="absolute right-3 top-1/2 -translate-y-1/2">
+                          <Users className="w-5 h-5 text-gray-500" />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-gray-300">Email *</label>
+                      <div className="relative">
+                        <input
+                          type="email"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleChange}
+                          required
+                          className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-blue-500/50 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all"
+                          placeholder="your@email.com"
+                        />
+                        <div className="absolute right-3 top-1/2 -translate-y-1/2">
+                          <Mail className="w-5 h-5 text-gray-500" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="grid sm:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-gray-300">Company</label>
+                      <div className="relative">
+                        <input
+                          type="text"
+                          name="company"
+                          value={formData.company}
+                          onChange={handleChange}
+                          className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-blue-500/50 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all"
+                          placeholder="Company name"
+                        />
+                        <div className="absolute right-3 top-1/2 -translate-y-1/2">
+                          <Building className="w-5 h-5 text-gray-500" />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-gray-300">Phone</label>
+                      <div className="relative">
+                        <input
+                          type="tel"
+                          name="phone"
+                          value={formData.phone}
+                          onChange={handleChange}
+                          className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-blue-500/50 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all"
+                          placeholder="+1 (555) 000-0000"
+                        />
+                        <div className="absolute right-3 top-1/2 -translate-y-1/2">
+                          <PhoneCall className="w-5 h-5 text-gray-500" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-gray-300">Service Interest *</label>
+                    <div className="relative">
+                      <select
+                        name="service"
+                        value={formData.service}
+                        onChange={handleChange}
+                        required
+                        className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-blue-500/50 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all appearance-none"
+                      >
+                        <option value="">Select a service</option>
+                        {services.map((service, idx) => (
+                          <option key={idx} value={service}>{service}</option>
+                        ))}
+                      </select>
+                      <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
+                        <ChevronDown className="w-5 h-5 text-gray-500" />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-gray-300">Project Budget</label>
+                    <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
+                      {budgets.map((budget, idx) => (
+                        <motion.button
+                          key={idx}
+                          type="button"
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          onClick={() => setFormData({ ...formData, budget })}
+                          className={cn(
+                            "px-3 py-2 rounded-lg text-sm transition-all",
+                            formData.budget === budget
+                              ? "bg-gradient-to-r from-blue-500 to-cyan-500 text-white"
+                              : "bg-white/5 hover:bg-white/10 border border-white/10 text-gray-300"
+                          )}
+                        >
+                          {budget}
+                        </motion.button>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-gray-300">Message *</label>
+                    <div className="relative">
+                      <textarea
+                        name="message"
+                        value={formData.message}
+                        onChange={handleChange}
+                        required
+                        rows={4}
+                        className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-blue-500/50 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all resize-none"
+                        placeholder="Tell us about your project..."
+                      />
+                      <div className="absolute right-3 top-3">
+                        <MessageCircle className="w-5 h-5 text-gray-500" />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="pt-4">
+                    <GlowingButton
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full py-4 text-lg font-semibold"
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="w-5 h-5 animate-spin mr-2" />
+                          Sending...
+                        </>
+                      ) : (
+                        <>
+                          Send Message
+                          <Send className="ml-2 w-5 h-5" />
+                        </>
+                      )}
+                    </GlowingButton>
+                  </div>
+
+                  <p className="text-center text-sm text-gray-400">
+                    By submitting, you agree to our{" "}
+                    <a href="#" className="text-cyan-400 hover:text-cyan-300">Privacy Policy</a>
+                  </p>
+                </form>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Map Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-32"
+          >
+            <div className="text-center mb-12">
+              <h2 className="text-4xl sm:text-5xl font-bold mb-6">
+                Find Our <GradientText>Office</GradientText>
+              </h2>
+              <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+                Visit us at our headquarters in San Francisco's Tech Valley
+              </p>
+            </div>
+
+            <div className="relative rounded-3xl overflow-hidden border border-white/10">
+              {/* Map Placeholder with Animation */}
+              <div className="relative h-96 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 overflow-hidden">
+                {/* Animated Grid */}
+                <div className="absolute inset-0 opacity-10">
+                  <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center" />
+                </div>
+                
+                {/* Map Marker */}
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                  <motion.div
+                    animate={{
+                      y: [0, -10, 0],
+                      scale: [1, 1.1, 1],
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                    className="relative"
+                  >
+                    <div className="absolute -inset-4 bg-blue-500/20 rounded-full blur" />
+                    <div className="relative w-12 h-12 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center">
+                      <MapPin className="w-6 h-6" />
+                    </div>
+                  </motion.div>
+                </div>
+
+                {/* Map Coordinates */}
+                <div className="absolute bottom-6 left-6 p-4 rounded-xl bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-xl border border-white/10">
+                  <div className="text-sm text-gray-400 mb-2">Coordinates</div>
+                  <div className="text-white font-mono">37.7749° N, 122.4194° W</div>
+                </div>
+
+                {/* Address Card */}
+                <div className="absolute bottom-6 right-6 p-4 rounded-xl bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-xl border border-white/10">
+                  <div className="flex items-center gap-3 mb-2">
+                    <Building className="w-5 h-5 text-cyan-400" />
+                    <div className="text-sm font-semibold text-white">i-Team Headquarters</div>
+                  </div>
+                  <div className="text-sm text-gray-400">123 Tech Valley, San Francisco, CA 94107</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Nearby Info */}
+            <div className="grid md:grid-cols-3 gap-6 mt-8">
+              {[
+                {
+                  icon: <Coffee className="w-5 h-5" />,
+                  title: "Coffee Shops",
+                  description: "Multiple cafes within walking distance"
+                },
+                {
+                  icon: <Shield className="w-5 h-5" />,
+                  title: "Secure Parking",
+                  description: "24/7 monitored parking garage"
+                },
+                {
+                  icon: <Zap className="w-5 h-5" />,
+                  title: "Public Transport",
+                  description: "2 blocks from BART station"
+                }
+              ].map((item, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1 }}
+                  className="p-4 rounded-xl bg-white/5 border border-white/10"
+                >
+                  <div className="flex items-center gap-3">
+                    {item.icon}
+                    <div>
+                      <h4 className="font-semibold text-white">{item.title}</h4>
+                      <p className="text-sm text-gray-400">{item.description}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* CTA Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center"
+          >
+            <div className="relative p-12 rounded-3xl overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-cyan-500/10 to-blue-500/10" />
+              <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10" />
+              
+              <div className="relative z-10">
+                <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-r from-blue-600 to-cyan-600 mb-8">
+                  <PhoneCall className="w-10 h-10" />
+                </div>
+                <h2 className="text-4xl sm:text-5xl font-bold mb-6">
+                  Need Immediate Assistance?
+                </h2>
+                <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                  Call our support team directly for urgent matters.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                  <div className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                    +1 (555) 123-4567
+                  </div>
+                  <button className="px-8 py-3 rounded-lg bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300">
+                    Call Now
+                  </button>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+// Add missing ChevronDown icon component
+const ChevronDown = ({ className }: { className?: string }) => (
+  <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+  </svg>
+);
