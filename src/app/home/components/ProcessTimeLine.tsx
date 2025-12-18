@@ -5,30 +5,30 @@ import { motion, useAnimation } from "framer-motion";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
-interface ProcessStep {
-  number: string;
-  title: string;
-  desc: string;
-  icon: React.ReactNode;
-  color: string;
+interface EtapeProcessus {
+  numero: string;
+  titre: string;
+  description: string;
+  icone: React.ReactNode;
+  couleur: string;
 }
 
 interface ProcessTimelineProps {
-  steps: ProcessStep[];
+  etapes: EtapeProcessus[];
 }
 
-export const ProcessTimeline = ({ steps }: ProcessTimelineProps) => {
-  const [activeStep, setActiveStep] = useState(0);
+export const ProcessTimeline = ({ etapes }: ProcessTimelineProps) => {
+  const [etapeActive, setEtapeActive] = useState(0);
   const controls = useAnimation();
 
   useEffect(() => {
     const sequence = async () => {
-      for (let i = 0; i < steps.length; i++) {
-        setActiveStep(i);
+      for (let i = 0; i < etapes.length; i++) {
+        setEtapeActive(i);
         await new Promise(resolve => setTimeout(resolve, 1000));
       }
-      // Reset to first step after completing sequence
-      setActiveStep(0);
+      // Réinitialiser à la première étape après avoir terminé la séquence
+      setEtapeActive(0);
     };
 
     sequence();
@@ -36,21 +36,21 @@ export const ProcessTimeline = ({ steps }: ProcessTimelineProps) => {
 
   return (
     <section className="relative py-32 overflow-hidden">
-      {/* Background Effects */}
+      {/* Effets d'arrière-plan */}
       <div className="absolute inset-0">
-        {/* Gradient Background */}
+        {/* Arrière-plan dégradé */}
         <div className="absolute inset-0 bg-gradient-to-b from-blue-950/30 via-transparent to-cyan-950/20" />
         
-        {/* Animated Grid */}
+        {/* Grille animée */}
         <div className="absolute inset-0 opacity-[0.02] bg-[url('/grid.svg')] bg-center [mask-image:radial-gradient(ellipse_at_center,white,transparent_70%)]" />
         
-        {/* Floating Orbs */}
+        {/* Orbites flottantes */}
         <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
       </div>
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
+        {/* En-tête de section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -82,20 +82,20 @@ export const ProcessTimeline = ({ steps }: ProcessTimelineProps) => {
                 />
               ))}
             </div>
-            <span className="text-sm font-semibold text-cyan-300">Step by Step</span>
+            <span className="text-sm font-semibold text-cyan-300">Étape par Étape</span>
           </motion.div>
           
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-            Our <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Process</span>
+            Notre <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Processus</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            A clear and structured workflow designed to deliver reliable, high-quality results.
+            Un flux de travail clair et structuré conçu pour livrer des résultats fiables et de haute qualité.
           </p>
         </motion.div>
 
-        {/* Timeline Container */}
+        {/* Conteneur de timeline */}
         <div className="relative">
-          {/* Animated Vertical Line */}
+          {/* Ligne verticale animée */}
           <div className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 overflow-hidden">
             <motion.div
               className="h-full w-full bg-gradient-to-b from-blue-500 via-cyan-500 to-blue-500"
@@ -105,19 +105,19 @@ export const ProcessTimeline = ({ steps }: ProcessTimelineProps) => {
               transition={{ duration: 2, ease: "easeInOut" }}
             />
             
-            {/* Progress Indicator */}
+            {/* Indicateur de progression */}
             <motion.div
               className="absolute top-0 z-0 w-full bg-gradient-to-b from-blue-400 to-cyan-400"
               initial={{ height: "0%" }}
-              animate={{ height: `${((activeStep + 1) / steps.length) * 100}%` }}
+              animate={{ height: `${((etapeActive + 1) / etapes.length) * 100}%` }}
               transition={{ duration: 0.5 }}
             />
           </div>
 
-          {/* Steps Container */}
+          {/* Conteneur d'étapes */}
           <div className="space-y-8">
-            {steps.map((step, index) => {
-              const isLeft = index % 2 === 0;
+            {etapes.map((etape, index) => {
+              const estAGauche = index % 2 === 0;
 
               return (
                 <motion.div
@@ -126,34 +126,34 @@ export const ProcessTimeline = ({ steps }: ProcessTimelineProps) => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, delay: index * 0.15 }}
-                  onMouseEnter={() => setActiveStep(index)}
+                  onMouseEnter={() => setEtapeActive(index)}
                   className="relative flex items-center"
                 >
-                  {/* Step Card */}
+                  {/* Carte d'étape */}
                   <div className={cn(
                     "relative w-full max-w-xl",
-                    isLeft ? "mr-auto pr-20" : "ml-auto pl-20"
+                    estAGauche ? "mr-auto pr-20" : "ml-auto pl-20"
                   )}>
-                    {/* Glow Effect */}
+                    {/* Effet de lueur */}
                     <motion.div
                       className={cn(
                         "absolute -inset-0.5 rounded-2xl blur",
                         "opacity-0 group-hover:opacity-100 transition-opacity duration-300",
-                        activeStep === index && "opacity-100"
+                        etapeActive === index && "opacity-100"
                       )}
                       style={{
-                        background: `linear-gradient(to right, ${step.color})`,
+                        background: `linear-gradient(to right, ${etape.couleur})`,
                       }}
                     />
 
-                    {/* Card Content */}
+                    {/* Contenu de la carte */}
                     <motion.div
                       whileHover={{ 
                         scale: 1.02,
                         boxShadow: "0 20px 60px rgba(6, 182, 212, 0.15)"
                       }}
                       animate={{
-                        borderColor: activeStep === index 
+                        borderColor: etapeActive === index 
                           ? "rgba(6, 182, 212, 0.4)" 
                           : "rgba(255, 255, 255, 0.1)",
                       }}
@@ -164,47 +164,47 @@ export const ProcessTimeline = ({ steps }: ProcessTimelineProps) => {
                         "group cursor-pointer"
                       )}
                     >
-                      {/* Large Step Number */}
+                      {/* Numéro d'étape en grand */}
                       <motion.div
                         animate={{
-                          scale: activeStep === index ? 1.1 : 1,
-                          opacity: activeStep === index ? 0.3 : 0.15,
+                          scale: etapeActive === index ? 1.1 : 1,
+                          opacity: etapeActive === index ? 0.3 : 0.15,
                         }}
                         className={cn(
                           "absolute text-8xl font-black select-none",
-                          isLeft ? "right-8 top-4" : "right-8 top-4"
+                          estAGauche ? "right-8 top-4" : "right-8 top-4"
                         )}
                         style={{
-                          WebkitTextStroke: `2px ${step.color.split(' ')[0].replace('from-', '')}`
+                          WebkitTextStroke: `2px ${etape.couleur.split(' ')[0].replace('from-', '')}`
                         }}
                       >
-                        {step.number}
+                        {etape.numero}
                       </motion.div>
 
-                      {/* Step Header */}
+                      {/* En-tête d'étape */}
                       <div className="flex items-center gap-6 mb-6">
-                        {/* Large Icon Container */}
+                        {/* Grand conteneur d'icône */}
                         <motion.div
                           animate={{
-                            scale: activeStep === index ? 1.1 : 1,
-                            rotate: activeStep === index ? [0, 10, -10, 0] : 0,
+                            scale: etapeActive === index ? 1.1 : 1,
+                            rotate: etapeActive === index ? [0, 10, -10, 0] : 0,
                           }}
                           transition={{ duration: 0.5 }}
                           className="relative"
                         >
-                          {/* Icon Glow */}
+                          {/* Lueur d'icône */}
                           <motion.div
                             animate={{
-                              scale: activeStep === index ? 1.2 : 1,
-                              opacity: activeStep === index ? 0.5 : 0,
+                              scale: etapeActive === index ? 1.2 : 1,
+                              opacity: etapeActive === index ? 0.5 : 0,
                             }}
                             className="absolute -inset-3 rounded-xl blur"
                             style={{
-                              background: `linear-gradient(to right, ${step.color})`,
+                              background: `linear-gradient(to right, ${etape.couleur})`,
                             }}
                           />
                           
-                          {/* Icon */}
+                          {/* Icône */}
                           <div
                             className={cn(
                               "relative w-16 h-16 rounded-xl",
@@ -214,56 +214,56 @@ export const ProcessTimeline = ({ steps }: ProcessTimelineProps) => {
                               "group-hover:border-white/30"
                             )}
                             style={{
-                              background: `linear-gradient(135deg, ${step.color})`,
+                              background: `linear-gradient(135deg, ${etape.couleur})`,
                             }}
                           >
                             <motion.div
                               animate={{
-                                scale: activeStep === index ? 1.2 : 1,
+                                scale: etapeActive === index ? 1.2 : 1,
                               }}
                               className="text-white"
                             >
-                              {step.icon}
+                              {etape.icone}
                             </motion.div>
                           </div>
                         </motion.div>
 
-                        {/* Step Title */}
+                        {/* Titre d'étape */}
                         <div>
                           <motion.h3
                             animate={{
-                              color: activeStep === index ? "#ffffff" : "#f3f4f6",
+                              color: etapeActive === index ? "#ffffff" : "#f3f4f6",
                             }}
                             className="text-2xl font-bold mb-2"
                           >
-                            {step.title}
+                            {etape.titre}
                           </motion.h3>
                           <div className="flex items-center gap-2">
                             <div className="w-8 h-0.5 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500" />
-                            <span className="text-sm text-gray-400">Step {index + 1}</span>
+                            <span className="text-sm text-gray-400">Étape {index + 1}</span>
                           </div>
                         </div>
                       </div>
 
-                      {/* Step Description */}
+                      {/* Description d'étape */}
                       <motion.p
                         animate={{
-                          opacity: activeStep === index ? 1 : 0.8,
+                          opacity: etapeActive === index ? 1 : 0.8,
                         }}
                         className="text-gray-400 leading-relaxed text-lg"
                       >
-                        {step.desc}
+                        {etape.description}
                       </motion.p>
 
-                      {/* Progress Indicator Dots */}
+                      {/* Points d'indicateur de progression */}
                       <div className="flex items-center gap-2 mt-6">
-                        {steps.map((_, i) => (
+                        {etapes.map((_, i) => (
                           <motion.div
                             key={i}
                             animate={{
                               width: i <= index ? "24px" : "8px",
                               backgroundColor: i <= index 
-                                ? step.color.split(' ')[0].replace('from-', '')
+                                ? etape.couleur.split(' ')[0].replace('from-', '')
                                 : "rgba(255, 255, 255, 0.1)",
                             }}
                             className="h-2 rounded-full transition-all duration-300"
@@ -271,23 +271,20 @@ export const ProcessTimeline = ({ steps }: ProcessTimelineProps) => {
                         ))}
                       </div>
                     </motion.div>
-
-                    {/* Connection Line to Center */}
-                   
                   </div>
 
-                  {/* Timeline Node */}
+                  {/* Nœud de timeline */}
                   <div className="absolute left-1/2 -translate-x-1/2 z-10">
                     <motion.div
                       animate={{
-                        scale: activeStep === index ? 1.3 : 1,
-                        boxShadow: activeStep === index 
+                        scale: etapeActive === index ? 1.3 : 1,
+                        boxShadow: etapeActive === index 
                           ? "0 0 30px rgba(6, 182, 212, 0.8)" 
                           : "0 0 0px rgba(6, 182, 212, 0)",
                       }}
                       className="relative w-8 h-8 rounded-full z-100"
                     >
-                      {/* Node Outer Ring */}
+                      {/* Anneau extérieur du nœud */}
                       <motion.div
                         animate={{
                           rotate: 360,
@@ -299,23 +296,23 @@ export const ProcessTimeline = ({ steps }: ProcessTimelineProps) => {
                         }}
                         className="absolute inset-0 rounded-full border-2 border-transparent"
                         style={{
-                          borderImage: `linear-gradient(to right, ${step.color}) 1`,
+                          borderImage: `linear-gradient(to right, ${etape.couleur}) 1`,
                         }}
                       />
                       
-                      {/* Node Center */}
+                      {/* Centre du nœud */}
                       <div
                         className="absolute inset-2 rounded-full"
                         style={{
-                          background: `linear-gradient(to right, ${step.color})`,
+                          background: `linear-gradient(to right, ${etape.couleur})`,
                         }}
                       />
                       
-                      {/* Active Indicator */}
+                      {/* Indicateur actif */}
                       <motion.div
                         animate={{
-                          scale: activeStep === index ? [1, 1.5, 1] : 0,
-                          opacity: activeStep === index ? [0, 0.5, 0] : 0,
+                          scale: etapeActive === index ? [1, 1.5, 1] : 0,
+                          opacity: etapeActive === index ? [0, 0.5, 0] : 0,
                         }}
                         transition={{
                           duration: 1.5,
@@ -323,20 +320,17 @@ export const ProcessTimeline = ({ steps }: ProcessTimelineProps) => {
                         }}
                         className="absolute -inset-4 rounded-full"
                         style={{
-                          background: `linear-gradient(to right, ${step.color})`,
+                          background: `linear-gradient(to right, ${etape.couleur})`,
                         }}
                       />
                     </motion.div>
-
-                    {/* Step Number on Node */}
-                   
                   </div>
                 </motion.div>
               );
             })}
           </div>
 
-          {/* Progress Bar at Bottom */}
+          {/* Barre de progression en bas */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -353,18 +347,18 @@ export const ProcessTimeline = ({ steps }: ProcessTimelineProps) => {
                 transition={{ duration: 2, delay: 0.5 }}
               />
               
-              {/* Progress Steps */}
+              {/* Étapes de progression */}
               <div className="absolute inset-0 flex">
-                {steps.map((_, i) => (
+                {etapes.map((_, i) => (
                   <div
                     key={i}
                     className="flex-1 relative"
-                    onClick={() => setActiveStep(i)}
+                    onClick={() => setEtapeActive(i)}
                   >
                     <motion.div
                       animate={{
-                        scale: activeStep === i ? 1.5 : 1,
-                        backgroundColor: activeStep >= i 
+                        scale: etapeActive === i ? 1.5 : 1,
+                        backgroundColor: etapeActive >= i 
                           ? "rgb(6, 182, 212)" 
                           : "rgba(255, 255, 255, 0.3)",
                       }}
@@ -379,20 +373,20 @@ export const ProcessTimeline = ({ steps }: ProcessTimelineProps) => {
               </div>
             </div>
             
-            {/* Progress Labels */}
+            {/* Étiquettes de progression */}
             <div className="flex justify-between mt-4 px-2">
-              {steps.map((step, i) => (
+              {etapes.map((etape, i) => (
                 <button
                   key={i}
-                  onClick={() => setActiveStep(i)}
+                  onClick={() => setEtapeActive(i)}
                   className={cn(
                     "text-sm font-medium transition-all duration-300",
-                    activeStep === i 
+                    etapeActive === i 
                       ? "text-cyan-400 scale-110" 
                       : "text-gray-500 hover:text-gray-300"
                   )}
                 >
-                  {step.title}
+                  {etape.titre}
                 </button>
               ))}
             </div>

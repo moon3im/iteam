@@ -6,27 +6,27 @@ import { Star, Quote } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface ReviewCardProps {
-  name: string;
+  nom: string;
   role: string;
-  content: string;
-  rating: number;
+  contenu: string;
+  note: number;
   avatar: string;
-  companyLogo?: string;
-  project?: string;
+  logoEntreprise?: string;
+  projet?: string;
   index?: number;
-  fullWidth?: boolean;
+  pleineLargeur?: boolean;
 }
 
 export const ReviewCard = ({
-  name,
+  nom,
   role,
-  content,
-  rating,
+  contenu,
+  note,
   avatar,
-  companyLogo,
-  project,
+  logoEntreprise,
+  projet,
   index = 0,
-  fullWidth = false
+  pleineLargeur = false
 }: ReviewCardProps) => {
   return (
     <motion.div
@@ -36,50 +36,50 @@ export const ReviewCard = ({
       whileHover={{ y: -5 }}
       className={cn(
         "h-full p-8 rounded-3xl bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-xl border border-white/10 hover:border-blue-500/30 transition-all duration-300",
-        fullWidth && "w-full"
+        pleineLargeur && "w-full"
       )}
     >
-      {/* Quote Icon */}
+      {/* Icône de citation */}
       <div className="absolute top-6 right-6 opacity-10">
         <Quote className="w-12 h-12" />
       </div>
 
-      {/* Rating */}
+      {/* Note */}
       <div className="flex items-center gap-1 mb-6">
         {[...Array(5)].map((_, i) => (
           <Star
             key={i}
             className={cn(
               "w-5 h-5",
-              i < rating ? "fill-yellow-400 text-yellow-400" : "fill-gray-700 text-gray-700"
+              i < note ? "fill-yellow-400 text-yellow-400" : "fill-gray-700 text-gray-700"
             )}
           />
         ))}
       </div>
 
-      {/* Content */}
-      <p className="text-lg text-gray-300 leading-relaxed mb-8 italic">"{content}"</p>
+      {/* Contenu */}
+      <p className="text-lg text-gray-300 leading-relaxed mb-8 italic">"{contenu}"</p>
 
-      {/* Author Info */}
+      {/* Informations sur l'auteur */}
       <div className="flex items-center gap-4">
         {/* Avatar */}
         <div className="relative">
           <div className="w-14 h-14 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center text-white font-bold text-lg">
             {avatar}
           </div>
-          {companyLogo && (
+          {logoEntreprise && (
             <div className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center text-xs font-bold">
-              {companyLogo}
+              {logoEntreprise}
             </div>
           )}
         </div>
 
         <div className="flex-1">
-          <h4 className="font-bold text-white text-lg">{name}</h4>
+          <h4 className="font-bold text-white text-lg">{nom}</h4>
           <p className="text-gray-400 text-sm">{role}</p>
-          {project && (
+          {projet && (
             <div className="mt-2 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20">
-              <span className="text-xs text-blue-300">{project}</span>
+              <span className="text-xs text-blue-300">{projet}</span>
             </div>
           )}
         </div>
