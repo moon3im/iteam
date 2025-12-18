@@ -7,18 +7,18 @@ import { GradientText } from "@/components/ui/GradientText";
 import { TechCard } from "../components/TechCard";
 
 interface TechItem {
-  icon: React.ReactNode;
-  name: string;
-  color: string;
+  icone: React.ReactNode;
+  nom: string;
+  couleur: string;
 }
 
 const techStack: TechItem[] = [
-  { icon: <Code2 className="w-8 h-8" />, name: "TypeScript", color: "text-blue-500" },
-  { icon: <Cpu className="w-8 h-8" />, name: "React", color: "text-cyan-400" },
-  { icon: <GitBranch className="w-8 h-8" />, name: "Next.js", color: "text-white" },
-  { icon: <Database className="w-8 h-8" />, name: "MongoDB", color: "text-green-500" },
-  { icon: <Layers className="w-8 h-8" />, name: "Docker", color: "text-blue-400" },
-  { icon: <Globe className="w-8 h-8" />, name: "Python", color: "text-yellow-400" },
+  { icone: <Code2 className="w-8 h-8" />, nom: "TypeScript", couleur: "text-blue-500" },
+  { icone: <Cpu className="w-8 h-8" />, nom: "React", couleur: "text-cyan-400" },
+  { icone: <GitBranch className="w-8 h-8" />, nom: "Next.js", couleur: "text-white" },
+  { icone: <Database className="w-8 h-8" />, nom: "MongoDB", couleur: "text-green-500" },
+  { icone: <Layers className="w-8 h-8" />, nom: "Docker", couleur: "text-blue-400" },
+  { icone: <Globe className="w-8 h-8" />, nom: "Python", couleur: "text-yellow-400" },
 ];
 
 export const TechStackSection = () => {
@@ -30,11 +30,11 @@ export const TechStackSection = () => {
       transition={{ duration: 1 }}
       className="relative py-32 overflow-hidden"
     >
-      <FondTechno />
+      <FondTechnologie />
       
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
         <EnTeteSection 
-          icon={<Sparkles className="w-5 h-5 text-cyan-400" />}
+          icone={<Sparkles className="w-5 h-5 text-cyan-400" />}
           texteBadge="Technologie de Pointe"
           titre="Propulsé par une Stack Moderne"
           description="Nous utilisons des technologies leaders du marché pour créer des solutions performantes et évolutives"
@@ -46,7 +46,7 @@ export const TechStackSection = () => {
   );
 };
 
-const FondTechno = () => {
+const FondTechnologie = () => {
   return (
     <>
       <div className="absolute inset-0 opacity-5">
@@ -59,13 +59,13 @@ const FondTechno = () => {
 };
 
 interface EnTeteSectionProps {
-  icon: React.ReactNode;
+  icone: React.ReactNode;
   texteBadge: string;
   titre: string;
   description: string;
 }
 
-const EnTeteSection = ({ icon, texteBadge, titre, description }: EnTeteSectionProps) => {
+const EnTeteSection = ({ icone, texteBadge, titre, description }: EnTeteSectionProps) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -75,12 +75,11 @@ const EnTeteSection = ({ icon, texteBadge, titre, description }: EnTeteSectionPr
       className="text-center mb-16"
     >
       <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-blue-500/10 to-cyan-500/10 backdrop-blur-xl border border-blue-500/30 mb-6">
-        {icon}
+        {icone}
         <span className="text-sm font-semibold text-cyan-300">{texteBadge}</span>
       </div>
       <h3 className="text-4xl sm:text-5xl font-bold mb-6">
-        {titre.split("Stack Moderne")[0]}
-        <span className="bg-linear-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent"> Stack Moderne</span>
+        {titre}
       </h3>
       <p className="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
         {description}
