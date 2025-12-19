@@ -375,25 +375,7 @@ export const ServicesMethodology = () => {
         </div>
 
         {/* Footer CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-16 text-center"
-        >
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-cyan-500/10 to-blue-500/10 backdrop-blur-lg border border-cyan-500/20 hover:border-cyan-500/40 transition-all duration-300 group cursor-pointer"
-          >
-            <Sparkles className="w-5 h-5 text-cyan-400 group-hover:rotate-180 transition-transform duration-500" />
-            <span className="text-cyan-300 font-medium">
-              Une méthode orientée résultats et collaboration
-            </span>
-            <BarChart3 className="w-5 h-5 text-cyan-400 group-hover:translate-x-1 transition-transform" />
-          </motion.div>
-        </motion.div>
+       
       </div>
     </section>
   );

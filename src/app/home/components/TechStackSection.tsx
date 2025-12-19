@@ -37,7 +37,7 @@ export const TechStackSection = () => {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 1 }}
-      className="relative py-32 overflow-hidden"
+      className="relative py-16 overflow-hidden"
     >
       <FondTechnologie />
       

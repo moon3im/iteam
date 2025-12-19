@@ -47,7 +47,7 @@ export default function Header() {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className={cn(
-        "fixed left-1/2 top-2 -translate-x-1/2 z-50 w-[95%] max-w-7xl rounded-full px-8 transition-all duration-300",
+        "fixed left-1/2 top-2 -translate-x-1/2 z-50 w-[95%] max-w-7xl rounded-lg md:rounded-full md:px-8 transition-all duration-300",
         isScrolled
           ? "bg-linear-to-r from-blue-900/15 to-blue-900/20 backdrop-blur-xl shadow-2xl border border-white/10"
           : "bg-linear-to-r from-blue-900/20 to-transparent backdrop-blur-sm"
@@ -56,7 +56,7 @@ export default function Header() {
       <div className="flex items-center justify-between px-6 py-4 md:py-5">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group">
-          <img src="images/logo.png" alt="Logo" className="w-28" />
+          <img src="images/logo.png" alt="Logo" className="md:w-28 w-16" />
         </Link>
 
         {/* Navigation Desktop */}
@@ -113,7 +113,7 @@ export default function Header() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden overflow-hidden bg-linear-to-b from-blue-900/95 to-blue-900/90 backdrop-blur-xl border-t border-white/10 rounded-b-2xl"
+            className="lg:hidden overflow-hidden backdrop-blur-2xl border-t border-white/10 rounded-b-2xl"
           >
             <div className="px-6 py-6 flex flex-col gap-4">
               {liensNavigation.map((lien, index) => (

@@ -1,4 +1,4 @@
-const FigmaIcon = ({ size = 34, color = "currentColor" }) => {
+const FigmaIcon = ({ size = 48, color = "currentColor" }) => {
   return (
     <svg
       width={size}

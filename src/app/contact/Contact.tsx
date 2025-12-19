@@ -15,8 +15,6 @@ import {
   Users,
   Shield,
   Zap,
-  Car,
-  Bus,
   ArrowRight,
   Sparkles,
   X,
@@ -36,9 +34,7 @@ import { cn } from "@/lib/utils";
 import { GradientText } from "@/components/ui/GradientText";
 import { GlowingButton } from "@/components/ui/GlowingButton";
 import { TechBackground } from "@/components/ui/TechBackground";
-// Correct import if file is named CustomDropdown.tsx
 import { CustomDropdown } from "./components/CustomDropDown";
-
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
@@ -53,33 +49,62 @@ export const Contact = () => {
   
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    
-    // Reset form after 5 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        name: "",
-        email: "",
-        company: "",
-        phone: "",
-        service: "",
-        message: "",
-        budget: ""
+    setError(null);
+
+    try {
+      // Envoi de l'email via l'API Resend
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          phone: formData.phone,
+          service: formData.service,
+          message: formData.message,
+          budget: formData.budget
+        }),
       });
-    }, 5000);
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Erreur lors de l\'envoi de l\'email');
+      }
+
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+
+      // Réinitialiser le formulaire après 5 secondes
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setFormData({
+          name: "",
+          email: "",
+          company: "",
+          phone: "",
+          service: "",
+          message: "",
+          budget: ""
+        });
+      }, 5000);
+
+    } catch (error: any) {
+      console.error('Erreur:', error);
+      setError(error.message || 'Une erreur est survenue. Veuillez réessayer.');
+      setIsSubmitting(false);
+    }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -298,7 +323,7 @@ export const Contact = () => {
                 <h3 className="font-bold text-white mb-4">Suivez-nous</h3>
                 <div className="flex items-center gap-4">
                   {[
-                    { icon: < Facebook className="w-5 h-5" />, label: "Facebook", url: "facebook.com/iteam.digital" },
+                    { icon: <Facebook className="w-5 h-5" />, label: "Facebook", url: "facebook.com/iteam.digital" },
                     { icon: <Instagram className="w-5 h-5" />, label: "Instagram", url: "instagram.com/iteam.dz" },
                     { icon: <Linkedin className="w-5 h-5" />, label: "LinkedIn", url: "linkedin.com/company/iteam-digital" }
                   ].map((social, idx) => (
@@ -347,6 +372,23 @@ export const Contact = () => {
                         </motion.div>
                         <h3 className="text-2xl font-bold text-white mb-2">Message Envoyé !</h3>
                         <p className="text-gray-300">Nous vous répondrons sous 2 heures.</p>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+
+                {/* Error Message */}
+                <AnimatePresence>
+                  {error && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -20 }}
+                      className="mb-6 p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-sm"
+                    >
+                      <div className="flex items-center gap-2">
+                        <X className="w-4 h-4" />
+                        <span>{error}</span>
                       </div>
                     </motion.div>
                   )}
@@ -429,13 +471,13 @@ export const Contact = () => {
                       </div>
                     </div>
                   </div>
+
                   <CustomDropdown
                     label="Service Intéressé"
                     options={services}
                     value={formData.service}
                     onChange={(val) => setFormData({ ...formData, service: val })}
                   />
-
 
                   <div className="space-y-2">
                     <label className="text-sm font-medium text-gray-300">Budget du Projet</label>
@@ -469,7 +511,7 @@ export const Contact = () => {
                         onChange={handleChange}
                         required
                         rows={4}
-                        className="w-full mt-2 px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-blue-500/50 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all resize-none"
+                        className="w-full mt-2 px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-blue-500/50 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all"
                         placeholder="Parlez-nous de votre projet..."
                       />
                       <div className="absolute right-3 top-3">
@@ -506,49 +548,43 @@ export const Contact = () => {
               </div>
             </motion.div>
           </div>
-{/* Map Section - Modified Version */}
-<motion.div
-  initial={{ opacity: 0, y: 30 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true }}
-  className="mb-32"
->
-  <div className="text-center mb-12">
-    <h2 className="text-4xl sm:text-5xl font-bold mb-6">
-      Visitez Notre <GradientText>Bureau</GradientText>
-    </h2>
-    <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-      Rendez-vous à notre siège à Chéraga, Alger
-    </p>
-  </div>
 
-  <div className="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
-    {/* Interactive Map Container */}
-   <div className="w-full h-96 rounded-3xl overflow-hidden border border-white/10 mt-12">
-   {/* Google Maps Iframe */}
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3150.352824372116!2d2.9611272243613116!3d36.76743096954649!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x128fb10069799cfb%3A0x8d01439935b3ac0c!2sIteam%20Digital!5e1!3m2!1sar!2sdz!4v1766104031194!5m2!1sar!2sdz"
-        className="w-full h-full rounded-3xl border-0"
-        allowFullScreen
-        loading="lazy"
-        referrerPolicy="no-referrer-when-downgrade"
-      ></iframe>
-</div>
-    
-  </div>
+          {/* Map Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-32"
+          >
+            <div className="text-center mb-12">
+              <h2 className="text-4xl sm:text-5xl font-bold mb-6">
+                Visitez Notre <GradientText>Bureau</GradientText>
+              </h2>
+              <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+                Rendez-vous à notre siège à Chéraga, Alger
+              </p>
+            </div>
 
-  {/* Map Controls & Information */}
-  <div className="flex flex-wrap items-center justify-center gap-4 mt-6">
-    
-    <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 border border-white/10">
-      <Clock className="w-4 h-4 text-cyan-400" />
-      <span className="text-sm text-gray-300">Dim-Jeu: 8h-16h</span>
-    </div>
-    
-   
-  </div>
+            <div className="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
+              <div className="w-full h-96 rounded-3xl overflow-hidden border border-white/10">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3150.352824372116!2d2.9611272243613116!3d36.76743096954649!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x128fb10069799cfb%3A0x8d01439935b3ac0c!2sIteam%20Digital!5e1!3m2!1sar!2sdz!4v1766104031194!5m2!1sar!2sdz"
+                  className="w-full h-full border-0"
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
+            </div>
 
-</motion.div>
+            <div className="flex flex-wrap items-center justify-center gap-4 mt-6">
+              <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 border border-white/10">
+                <Clock className="w-4 h-4 text-cyan-400" />
+                <span className="text-sm text-gray-300">Dim-Jeu: 8h-16h</span>
+              </div>
+            </div>
+          </motion.div>
+
           {/* CTA Section */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -586,10 +622,3 @@ export const Contact = () => {
     </div>
   );
 };
-
-// Add missing ChevronDown icon component
-const ChevronDown = ({ className }: { className?: string }) => (
-  <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-  </svg>
-);

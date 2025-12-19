@@ -51,7 +51,7 @@ const etapesProcessus = [
 
 export const ProcessTimelineSection = () => {
   return (
-    <section className="py-32 px-4 sm:px-6 lg:px-8 relative">
+    <section className="ms:py-32 px-4 sm:px-6 lg:px-8 relative">
       <ProcessTimeline etapes={etapesProcessus} />
     </section>
   );

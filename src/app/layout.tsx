@@ -17,7 +17,42 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "ITEAM",
-  description: "Modern tech solutions",
+  description: "Modern tech solutions — agences web, design, marketing et production audiovisuelle.",
+  keywords: [
+    "ITEAM",
+    "agence digitale",
+    "développement web",
+    "design",
+    "marketing digital",
+    "production audiovisuelle",
+  ],
+  authors: [{ name: "ITEAM", url: "https://iteam.digital" }],
+  openGraph: {
+    title: "ITEAM — Solutions digitales modernes",
+    description: "Agence digitale spécialisée en sites web, design, marketing et production audiovisuelle.",
+    siteName: "ITEAM",
+    url: "https://iteam.digital/",
+    images: [
+      {
+        url: "/images/seddik.jfif",
+        width: 1200,
+        height: 630,
+        alt: "ITEAM"
+      }
+    ],
+    locale: "fr_FR",
+    type: "website",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ITEAM — Solutions digitales',
+    description: 'Agence digitale: web, design, marketing et production audiovisuelle.'
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false
+  }
 };
 
 export default function RootLayout({
@@ -28,6 +63,27 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        {/* JSON-LD structured data for SEO (Organization) - no visual change */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "ITEAM",
+            "url": "https://iteam.digital/",
+            "logo": "https://iteam.digital/images/seddik.jfif",
+            "sameAs": [
+              "https://www.linkedin.com/",
+              "https://twitter.com/"
+            ],
+            "contactPoint": [{
+              "@type": "ContactPoint",
+              "telephone": "+213549402461",
+              "contactType": "customer service",
+              "availableLanguage": ["French","English"]
+            }]
+          }) }}
+        />
         <Header />
         <main className="min-h-screen">{children}</main>
         <Footer />

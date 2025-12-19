@@ -1,4 +1,4 @@
-const PremiereProIcon = ({ size = 34, color = "currentColor" }) => {
+const PremiereProIcon = ({ size = 48, color = "currentColor" }) => {
   return (
     <svg
       width={size}

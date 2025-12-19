@@ -1,9 +1,11 @@
 // components/pages/Home.tsx
 "use client";
 
+import dynamic from "next/dynamic";
 import { useState, useEffect, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { TechBackground } from "@/components/ui/TechBackground";
+const TechBackground = dynamic(() => import("@/components/ui/TechBackground").then(mod => mod.TechBackground), { ssr: false, loading: () => null });
+const ParticlesFlottants = dynamic(() => import("@/components/ui/ParticlesFlottants"), { ssr: false, loading: () => null });
 import { HeroSection } from "./components/HeroSection";
 import { TechStackSection } from "./components/TechStackSection";
 import { PacksSection } from "./components/PacksSection";
@@ -42,29 +44,4 @@ export const Home = () => {
   );
 };
 
-const ParticlesFlottants = () => {
-  return (
-    <div className="fixed inset-0 pointer-events-none">
-      {[...Array(50)].map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute w-1 h-1 bg-blue-400/20 rounded-full"
-          style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-          }}
-          animate={{
-            y: [0, -20, 0],
-            opacity: [0, 1, 0],
-            scale: [1, 1.5, 1],
-          }}
-          transition={{
-            duration: 3 + Math.random() * 2,
-            repeat: Infinity,
-            delay: Math.random() * 3,
-          }}
-        />
-      ))}
-    </div>
-  );
-};
+// ParticlesFlottants moved to a separate dynamically loaded component to reduce initial bundle

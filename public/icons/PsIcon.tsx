@@ -1,5 +1,5 @@
-const PsIcon = ({ size = 36, color = "currentColor" }) => {
-return (
+const PsIcon = ({ size = 48, color = "currentColor" }) => {
+  return (
     <svg
       width={size}
       height={size}

@@ -94,7 +94,7 @@ const packs: PackItem[] = [
 
 export const PacksSection = () => {
   return (
-    <section className="py-32 px-4 sm:px-6 lg:px-8 relative">
+    <section className="md:py-32 px-4 sm:px-6 lg:px-8 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-900/10 to-transparent" />
       <div className="relative z-10 max-w-7xl mx-auto">
         <EnTeteSection />
@@ -151,8 +151,8 @@ const CTAPersonnalise = () => {
       transition={{ delay: 0.4 }}
       className="mt-20 text-center"
     >
-      <div className="inline-flex items-center gap-4 p-6 rounded-2xl bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 backdrop-blur-xl border border-white/10 max-w-8xl mx-auto">
-        <InfinityIcon className="w-8 h-8 text-blue-400" />
+      <div className="md:inline-flex flex flex-col items-center gap-4 p-6 rounded-2xl bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 backdrop-blur-xl border border-white/10 max-w-8xl mx-auto">
+        <InfinityIcon className="w-8 h-8 hidden md:flex text-blue-400" />
         <div className="text-left">
           <h4 className="text-xl font-bold text-white">Besoin d'une Solution Personnalisée ?</h4>
           <p className="text-gray-400">Contactez-nous pour des packages d'entreprise sur mesure</p>

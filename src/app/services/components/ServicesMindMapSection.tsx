@@ -36,7 +36,7 @@ export const ServicesMindMapSection = ({
         <ServicesMindMap />
         
         <div className="relative flex items-center justify-center mt-4 z-20 opacity-60">
-          <div className="flex items-center gap-4 text-sm text-gray-400">
+          <div className="md:flex  items-center gap-4 text-sm text-gray-400">
             <div className="flex items-center gap-2">
               <motion.div
                 animate={{ scale: [1, 1.2, 1] }}

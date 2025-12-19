@@ -96,7 +96,7 @@ const services: ServiceItem[] = [
 
 export const ServicesSection = () => {
   return (
-    <section className="py-32 px-4 sm:px-6 lg:px-8 relative">
+    <section className="md:pb-16 py-16 px-4 sm:px-6 lg:px-8 relative">
       <div className="max-w-7xl mx-auto">
         <EnTeteSection />
         <GrilleServices services={services} />
@@ -112,16 +112,16 @@ const EnTeteSection = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
-      className="text-center mb-20"
+      className="text-center mb-8 md:mb-20"
     >
       <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-cyan-500/10 to-blue-500/10 backdrop-blur-xl border border-cyan-500/30 mb-6">
         <Sparkles className="w-5 h-5 text-cyan-400" />
         <span className="text-sm font-semibold text-cyan-300">Notre Expertise</span>
       </div>
-      <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-8">
+      <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-8">
         Services Digitaux <GradientText>Complets</GradientText>
       </h2>
-      <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+      <p className="md:text-xl text-sm text-gray-400 max-w-3xl mx-auto leading-relaxed">
         Solutions digitales de bout en bout conçues pour faire prospérer votre entreprise dans le paysage moderne.
       </p>
     </motion.div>

@@ -8,7 +8,7 @@ import { GlowingButton } from "@/components/ui/GlowingButton";
 
 export const CTASection = () => {
   return (
-    <section className="py-32 px-4 sm:px-6 lg:px-8 relative">
+    <section className="md:py-32 pb-12 px-4 sm:px-6 lg:px-8 relative">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -70,11 +70,11 @@ const IconeFlottante = () => {
 const EnTeteSection = () => {
   return (
     <>
-      <h2 className="text-4xl sm:text-5xl font-bold mb-6">
+      <h2 className="text-3xl sm:text-5xl font-bold mb-6">
         Prêt à <GradientText className="bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-400">Commencer ?</GradientText>
       </h2>
-      <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
-        Créons ensemble quelque chose d'incroyable. Planifiez votre consultation gratuite dès aujourd'hui et obtenez une feuille de route personnalisée.
+      <p className="md:text-xl text-gray-300 mb-10 md:max-w-2xl md:mx-auto leading-relaxed">
+        Créons ensemble quel  que chose d'incroyable. Planifiez votre consultation gratuite dès aujourd'hui et obtenez une feuille de route personnalisée.
       </p>
     </>
   );
@@ -83,17 +83,17 @@ const EnTeteSection = () => {
 const ActionsCTA = () => {
   return (
     <div className="flex flex-col sm:flex-row gap-6 justify-center">
-      <GlowingButton className="px-10 py-5 text-lg font-semibold shadow-2xl shadow-blue-500/25">
-        <span className="flex items-center gap-3">
-          <Calendar className="w-6 h-6" />
-          Réserver un Appel Stratégique Gratuit
-          <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-2 transition-transform" />
+      <GlowingButton className="md:px-10 p-2 md:py-5 text-lg font-semibold shadow-2xl shadow-blue-500/25">
+        <span className="flex text-xs items-center gap-3">
+          <Calendar className="hidden md:flex w-6 h-6" />
+          Réserver un Appel Stratégique 
+          <ChevronRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
         </span>
       </GlowingButton>
       
-      <button className="px-10 py-5 text-lg rounded-2xl bg-gradient-to-r from-white/0 via-white/5 to-white/0 backdrop-blur-xl border border-white/20 hover:border-cyan-500/50 hover:bg-cyan-500/10 transition-all duration-300 group">
-        <span className="flex items-center gap-3">
-          <Mail className="w-6 h-6 text-cyan-400" />
+      <button className="md:px-10 md:py-5 p-3 text-lg rounded-xl text-center md:rounded-2xl bg-gradient-to-r from-white/0 via-white/5 to-white/0 backdrop-blur-xl border border-white/20 hover:border-cyan-500/50 hover:bg-cyan-500/10 transition-all duration-300 group">
+        <span className="flex text-xs justify-center items-center gap-3">
+          <Mail className="hidden md:flex w-6 h-6 text-cyan-400" />
           Obtenir un Devis
           <ChevronRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
         </span>
@@ -104,7 +104,7 @@ const ActionsCTA = () => {
 
 const TempsReponse = () => {
   return (
-    <p className="text-gray-400 mt-8 text-sm">
+    <p className="text-gray-400 mt-8 text-xs md:text-sm">
       <Clock className="inline w-4 h-4 mr-2" />
       Réponse sous 2 heures • Consultation gratuite de 30 minutes
     </p>

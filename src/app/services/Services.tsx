@@ -1,21 +1,23 @@
 // components/pages/Services.tsx
 "use client";
 
+import dynamic from "next/dynamic";
 import { useState, useEffect } from "react";
-import { TechBackground } from "@/components/ui/TechBackground";
-import { 
-  Code2, 
-  Smartphone, 
-  Palette, 
-  Cloud, 
-  Shield, 
-  Brain, 
+const TechBackground = dynamic(() => import('@/components/ui/TechBackground').then(mod => mod.TechBackground), { ssr: false, loading: () => null });
+const FloatingParticles = dynamic(() => import('./components/FloatingParticles').then(mod => mod.FloatingParticles), { ssr: false, loading: () => null });
+import {
+  Code2,
+  Smartphone,
+  Palette,
+  Cloud,
+  Shield,
+  Brain,
   Users,
   Globe,
   Camera,
   BarChart3
 } from "lucide-react";
-import { FloatingParticles } from "./components/FloatingParticles";import { ServicesHero } from "./components/Serviceshero";
+import { ServicesHero } from "./components/Serviceshero";
 import { ServicesMindMapSection } from "./components/ServicesMindMapSection";
 import { ServicesDetails } from "./components/ServicesDetails";
 import { ServicesMethodology } from "./components/ServicesMethodology";

@@ -129,8 +129,8 @@ export default function Footer() {
               ))}
             </div>
           </div>
+              <div className="grid grid-cols-2">
 
-          {/* Liens rapides */}
           <div>
             <h3 className="text-lg font-semibold text-white mb-6 flex items-center gap-2">
               Liens Rapides <ChevronRight className="w-4 h-4 text-cyan-400" />
@@ -161,6 +161,9 @@ export default function Footer() {
               ))}
             </ul>
           </div>
+              </div>
+            
+          {/* Liens rapides */}
 
           {/* Contact */}
           <div>
@@ -211,7 +214,7 @@ export default function Footer() {
                 Abonnez-vous à notre newsletter pour les dernières actualités et insights.
               </p>
             </div>
-            <form className="flex gap-2">
+            <form className="md:flex flex-col gap-2">
               <input
                 type="email"
                 placeholder="Votre adresse email"
@@ -219,7 +222,7 @@ export default function Footer() {
               />
               <button
                 type="submit"
-                className="px-6 py-3 rounded-lg bg-linear-to-r from-blue-600 to-cyan-600 text-white font-semibold hover:shadow-blue-500/25 hover:shadow-xl transition-all duration-300"
+                className="px-6 py-3 max-md:mt-4 rounded-lg bg-linear-to-r from-blue-600 to-cyan-600 text-white font-semibold hover:shadow-blue-500/25 hover:shadow-xl transition-all duration-300"
               >
                 S'abonner
               </button>

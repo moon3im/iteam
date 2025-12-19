@@ -1,4 +1,4 @@
-const IllusIcon = ({ size = 34, color = "currentColor" }) => {
+const IllusIcon = ({ size = 48, color = "currentColor" }) => {
   return (
     <svg
       width={size}

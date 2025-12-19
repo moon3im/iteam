@@ -1,4 +1,4 @@
-const AfterEffectIcon = ({ size = 34, color = "currentColor" }) => {
+const AfterEffectIcon = ({ size = 48, color = "currentColor" }) => {
   return (
     <svg
       width={size}

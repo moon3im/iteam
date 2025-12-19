@@ -21,7 +21,7 @@ export const StatCard = ({ valeur, label, icone, changement, delai = 0 }: StatCa
     <motion.div
       initial={{ opacity: 0, y: 20, scale: 0.95 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{ delai, duration: 0.5, type: "spring", stiffness: 120 }}
+      transition={{ delay: delai, duration: 0.5, type: "spring", stiffness: 120 }}
       className="group p-6 rounded-2xl backdrop-blur-lg border border-white/10 bg-gradient-to-br from-white/5 to-white/10 hover:from-blue-900/30 hover:to-cyan-900/20 hover:shadow-xl hover:shadow-cyan-500/20 transition-all duration-300"
     >
       <div className="flex items-start justify-between mb-4">

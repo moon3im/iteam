@@ -45,27 +45,32 @@ export const TechCard = ({ tech, index }: TechCardProps) => {
         {/* Container d'icône élégant */}
         <div className="relative mb-6">
           {/* Fond de l'icône avec effet de lumière */}
-          <div className="relative w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-gray-900 to-gray-800 border border-white/10 group-hover:border-white/20 transition-all duration-300 overflow-hidden">
+          <div className="hidden md:flex relative w-32 h-32 mx-auto rounded-2xl  group-hover:border-white/20 transition-all duration-300 overflow-hidden">
             {/* Effet de lumière */}
             <div className="absolute inset-0 bg-gradient-to-br from-white/0 via-white/5 to-white/0" />
             
             {/* Icône */}
             <div className={cn(
-              "absolute inset-0 flex items-center justify-center transition-all duration-300",
+              "absolute w-full inset-0 flex items-center justify-center transition-all duration-300",
               "group-hover:scale-110",
               tech.couleur
             )}>
               {tech.icone}
             </div>
           </div>
-          
+           {/* Icône */}
+            <div className={cn(
+              "md:hidden flex justify-center",
+            )}>
+              {tech.icone}
+            </div>
           {/* Point lumineux */}
           <div className="absolute top-2 right-2 w-2 h-2 rounded-full bg-blue-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         </div>
 
         {/* Nom de la technologie */}
         <div className="text-center">
-          <h3 className="font-bold text-white text-lg mb-3 group-hover:text-cyan-100 transition-colors duration-300">
+          <h3 className="hidden font-bold text-white text-lg mb-3 group-hover:text-cyan-100 transition-colors duration-300">
             {tech.nom}
           </h3>
           

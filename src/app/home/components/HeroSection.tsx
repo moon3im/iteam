@@ -102,6 +102,7 @@ const ContenuHero = () => {
         transition={{ duration: 1, delay: 0.2 }}
         className="space-y-8"
       >
+
         <Slogan />
         <TitrePrincipal />
         <SousTitre />
@@ -118,7 +119,7 @@ const Slogan = () => {
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ delay: 0.3, type: "spring" }}
-      className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-blue-500/10 to-cyan-500/10 backdrop-blur-xl border border-blue-500/30 shadow-lg shadow-blue-500/5"
+      className="inline-flex items-center gap-1 md:gap-2 px-3 md:px-6 py-3 rounded-full bg-gradient-to-r from-blue-500/10 to-cyan-500/10 backdrop-blur-xl border border-blue-500/30 shadow-lg shadow-blue-500/5"
     >
       <motion.div
         animate={{ rotate: 360 }}
@@ -140,7 +141,7 @@ const TitrePrincipal = () => {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4, duration: 0.8 }}
-        className="text-5xl sm:text-7xl lg:text-8xl font-bold flex items-center justify-center gap-8 leading-tight tracking-tight"
+        className="text-5xl sm:text-7xl lg:text-8xl font-bold flex-col flex md:flex-row items-center justify-center md:gap-8 leading-tight tracking-tight"
       >
         <span className="block">Transformez</span>
         <span className="block mt-2">
@@ -165,11 +166,15 @@ const SousTitre = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 0.6, duration: 1 }}
-      className="text-xl sm:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
+      className="text-xl flex flex-col space-y-2 sm:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
     >
+      <span className="hidden md:inline-block text-lg">
       Nous créons des{" "}
-      <span className="relative inline-block">
-        <span className="text-white font-semibold">expériences digitales exceptionnelles</span>
+      </span>
+        <span className="flex md:hidden text-white text-lg ">Nous créons des Expériences digitales Exceptionnelles       qui propulsent la croissance et transforment les entreprises.
+        </span>
+      <span className="hidden md:inline-block relative ">
+        <span className="text-white text-2xl md:text-4xl font-semibold">Expériences digitales Exceptionnelles</span>
         <motion.span
           className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 to-cyan-500"
           initial={{ scaleX: 0 }}
@@ -177,7 +182,9 @@ const SousTitre = () => {
           transition={{ delay: 1, duration: 0.8 }}
         />
       </span>{" "}
+      <span className="hidden md:inline-block mt-4 md:mt-1  text-lg">
       qui propulsent la croissance et transforment les entreprises.
+      </span>
     </motion.p>
   );
 };
@@ -194,18 +201,18 @@ const CTAsHero = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.7 }}
-      className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-12"
+      className="flex flex-col sm:flex-row gap-6 justify-center items-center md:pt-12"
     >
       <motion.button
         onClick={handleClick}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >
-        <GlowingButton className="px-10 py-5 text-lg font-semibold shadow-2xl shadow-blue-500/25">
-          <span className="flex items-center gap-3">
+        <GlowingButton className="md:px-10 md:py-5  text-lg font-semibold shadow-2xl shadow-blue-500/25">
+          <span className="flex items-center justify-center max-md:w-full gap-2 md:gap-3">
             <Rocket className="w-6 h-6" />
             Lancez Votre Projet
-            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-2 transition-transform" />
+            <ArrowRight className="md:ml-2 w-5 h-5 group-hover:translate-x-2 transition-transform" />
           </span>
         </GlowingButton>
       </motion.button>
@@ -213,9 +220,9 @@ const CTAsHero = () => {
       <motion.button
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        className="group px-10 py-5 text-lg rounded-2xl bg-gradient-to-r from-white/0 via-white/5 to-white/0 backdrop-blur-xl border border-white/20 hover:border-cyan-500/50 transition-all duration-300 relative overflow-hidden"
+        className="group max-md:w-full md:px-10 py-5 text-lg rounded-2xl bg-gradient-to-r from-white/0 via-white/5 to-white/0 backdrop-blur-xl border border-white/20 hover:border-cyan-500/50 transition-all duration-300 relative overflow-hidden"
       >
-        <span className="flex items-center gap-3 relative z-10">
+        <span className="flex items-center justify-center gap-3 relative z-10">
           <Video className="w-6 h-6 text-cyan-400" />
           Consultation Gratuite
           <ChevronRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />

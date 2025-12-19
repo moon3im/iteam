@@ -36,9 +36,9 @@ export const PackCard = ({ pack, index }: PackCardProps) => {
       {/* Badge "Populaire" */}
       {pack.populaire && (
         <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
-          <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 backdrop-blur-xl border border-purple-500/30 shadow-lg">
+          <div className="flex items-center gap-2 px-2 md:px-4 py-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 backdrop-blur-xl border border-purple-500/30 shadow-lg">
             <Crown className="w-4 h-4" />
-            <span className="text-sm font-semibold">Le Plus Populaire</span>
+            <span className="text-xs font-semibold">Le Plus Populaire</span>
           </div>
         </div>
       )}
@@ -105,7 +105,7 @@ export const PackCard = ({ pack, index }: PackCardProps) => {
             "w-full py-4 font-semibold",
             pack.populaire && "bg-gradient-to-r from-purple-500 to-pink-500"
           )}>
-            <span className="flex items-center justify-center gap-3">
+            <span className="flex items-center justify-center text-xs gap-2">
               {pack.cta}
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </span>
