@@ -15,6 +15,8 @@ import {
   Users,
   Shield,
   Zap,
+  Car,
+  Bus,
   ArrowRight,
   Sparkles,
   X,
@@ -24,12 +26,19 @@ import {
   Mailbox,
   PhoneCall,
   Video,
-  Coffee
+  Coffee,
+  Twitter,
+  Facebook,
+  Instagram,
+  Linkedin
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { GradientText } from "@/components/ui/GradientText";
 import { GlowingButton } from "@/components/ui/GlowingButton";
 import { TechBackground } from "@/components/ui/TechBackground";
+// Correct import if file is named CustomDropdown.tsx
+import { CustomDropdown } from "./components/CustomDropDown";
+
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
@@ -80,51 +89,48 @@ export const Contact = () => {
   const contactInfo = [
     {
       icon: <Phone className="w-6 h-6" />,
-      title: "Phone",
-      value: "+1 (555) 123-4567",
-      subtitle: "Mon-Fri, 9AM-6PM EST",
+      title: "Téléphone",
+      value: "+213 549 402 461",
+      subtitle: "Dimanche-Jeudi, 8h-16h",
       color: "from-blue-500 to-cyan-500"
     },
     {
       icon: <Mail className="w-6 h-6" />,
       title: "Email",
-      value: "hello@iteam.com",
-      subtitle: "Response within 2 hours",
+      value: "contact@iteam.digital",
+      subtitle: "Réponse sous 2 heures",
       color: "from-purple-500 to-pink-500"
     },
     {
       icon: <MapPin className="w-6 h-6" />,
-      title: "Office",
-      value: "San Francisco, CA",
-      subtitle: "123 Tech Valley",
+      title: "Adresse",
+      value: "Chéraga, Alger",
+      subtitle: "25 Bd Ouaked Ahmed",
       color: "from-cyan-500 to-emerald-500"
     },
     {
       icon: <Clock className="w-6 h-6" />,
-      title: "Hours",
-      value: "24/7 Support",
-      subtitle: "Emergency support available",
+      title: "Horaires",
+      value: "Support 24/7",
+      subtitle: "Support d'urgence disponible",
       color: "from-emerald-500 to-green-500"
     }
   ];
 
   const services = [
-    "Web Development",
-    "Mobile Apps",
-    "UI/UX Design",
-    "Cloud Solutions",
-    "AI/ML Solutions",
-    "Security Services",
-    "Consulting",
-    "Other"
+    "Solutions Web & Digitales",
+    "Design & Branding",
+    "Production Audiovisuelle",
+    "Marketing & Communication",
+    "Autre"
   ];
 
   const budgets = [
-    "Under $10k",
-    "$10k - $50k",
-    "$50k - $100k",
-    "$100k - $250k",
-    "$250k+"
+    "Moins de 30,000 DA",
+    "30,000 - 70,000 DA",
+    "70,000 - 120,000 DA",
+    "120,000 - 200,000 DA",
+    "Plus de 200,000 DA"
   ];
 
   return (
@@ -201,14 +207,14 @@ export const Contact = () => {
               className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-blue-500/10 to-cyan-500/10 backdrop-blur-xl border border-blue-500/20 mb-8"
             >
               <MessageCircle className="w-5 h-5 text-cyan-400" />
-              <span className="text-sm font-semibold text-cyan-300">Get In Touch</span>
+              <span className="text-sm font-semibold text-cyan-300">Contactez-nous</span>
             </motion.div>
             
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-8">
-              Let's <GradientText>Connect</GradientText>
+              Travaillons <GradientText>Ensemble</GradientText>
             </h1>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-              Ready to transform your ideas into reality? Contact us today and let's build something amazing together.
+              Prêt à transformer vos idées en réalité ? Contactez-nous dès aujourd'hui et construisons quelque chose d'extraordinaire.
             </p>
           </motion.div>
 
@@ -262,12 +268,12 @@ export const Contact = () => {
                       <Calendar className="w-6 h-6 text-cyan-400" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-white">Quick Response</h3>
-                      <p className="text-sm text-gray-400">We'll get back to you within 2 hours</p>
+                      <h3 className="font-bold text-white">Réponse Rapide</h3>
+                      <p className="text-sm text-gray-400">Nous vous répondons sous 2 heures</p>
                     </div>
                   </div>
                   <button className="w-full py-3 rounded-lg bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold hover:opacity-90 transition-opacity">
-                    Schedule a Call
+                    Planifier un Appel
                   </button>
                 </div>
 
@@ -277,35 +283,37 @@ export const Contact = () => {
                       <Video className="w-6 h-6 text-pink-400" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-white">Virtual Meeting</h3>
-                      <p className="text-sm text-gray-400">Free 30-minute consultation</p>
+                      <h3 className="font-bold text-white">Réunion Virtuelle</h3>
+                      <p className="text-sm text-gray-400">Consultation gratuite de 30 minutes</p>
                     </div>
                   </div>
                   <button className="w-full py-3 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold hover:opacity-90 transition-opacity">
-                    Book Virtual Meeting
+                    Réserver une Réunion
                   </button>
                 </div>
               </div>
 
               {/* Social Links */}
               <div className="p-6 rounded-2xl bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-xl border border-white/10">
-                <h3 className="font-bold text-white mb-4">Follow Us</h3>
+                <h3 className="font-bold text-white mb-4">Suivez-nous</h3>
                 <div className="flex items-center gap-4">
                   {[
-                    { icon: <Globe className="w-5 h-5" />, label: "Website" },
-                    { icon: <X className="w-5 h-5" />, label: "Twitter" },
-                    { icon: <Building className="w-5 h-5" />, label: "LinkedIn" },
-                    { icon: <Sparkles className="w-5 h-5" />, label: "Instagram" }
+                    { icon: < Facebook className="w-5 h-5" />, label: "Facebook", url: "facebook.com/iteam.digital" },
+                    { icon: <Instagram className="w-5 h-5" />, label: "Instagram", url: "instagram.com/iteam.dz" },
+                    { icon: <Linkedin className="w-5 h-5" />, label: "LinkedIn", url: "linkedin.com/company/iteam-digital" }
                   ].map((social, idx) => (
-                    <motion.button
+                    <motion.a
                       key={idx}
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.95 }}
                       className="flex-1 p-3 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 flex flex-col items-center gap-2 transition-colors"
                     >
                       {social.icon}
                       <span className="text-xs text-gray-400">{social.label}</span>
-                    </motion.button>
+                    </motion.a>
                   ))}
                 </div>
               </div>
@@ -337,20 +345,20 @@ export const Contact = () => {
                         >
                           <CheckCircle className="w-10 h-10" />
                         </motion.div>
-                        <h3 className="text-2xl font-bold text-white mb-2">Message Sent!</h3>
-                        <p className="text-gray-300">We'll get back to you within 2 hours.</p>
+                        <h3 className="text-2xl font-bold text-white mb-2">Message Envoyé !</h3>
+                        <p className="text-gray-300">Nous vous répondrons sous 2 heures.</p>
                       </div>
                     </motion.div>
                   )}
                 </AnimatePresence>
 
-                <h2 className="text-3xl font-bold mb-2">Send us a message</h2>
-                <p className="text-gray-400 mb-8">Fill out the form below and we'll respond promptly</p>
+                <h2 className="text-3xl font-bold mb-2">Envoyez-nous un message</h2>
+                <p className="text-gray-400 mb-8">Remplissez le formulaire ci-dessous et nous vous répondrons rapidement</p>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid sm:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <label className="text-sm font-medium text-gray-300">Name *</label>
+                      <label className="text-sm font-medium text-gray-300">Nom *</label>
                       <div className="relative">
                         <input
                           type="text"
@@ -358,8 +366,8 @@ export const Contact = () => {
                           value={formData.name}
                           onChange={handleChange}
                           required
-                          className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-blue-500/50 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all"
-                          placeholder="Your name"
+                          className="w-full mt-2 px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-blue-500/50 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all"
+                          placeholder="Votre nom"
                         />
                         <div className="absolute right-3 top-1/2 -translate-y-1/2">
                           <Users className="w-5 h-5 text-gray-500" />
@@ -376,8 +384,8 @@ export const Contact = () => {
                           value={formData.email}
                           onChange={handleChange}
                           required
-                          className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-blue-500/50 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all"
-                          placeholder="your@email.com"
+                          className="w-full mt-2 px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-blue-500/50 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all"
+                          placeholder="votre@email.com"
                         />
                         <div className="absolute right-3 top-1/2 -translate-y-1/2">
                           <Mail className="w-5 h-5 text-gray-500" />
@@ -388,15 +396,15 @@ export const Contact = () => {
 
                   <div className="grid sm:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <label className="text-sm font-medium text-gray-300">Company</label>
+                      <label className="text-sm font-medium text-gray-300">Entreprise</label>
                       <div className="relative">
                         <input
                           type="text"
                           name="company"
                           value={formData.company}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-blue-500/50 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all"
-                          placeholder="Company name"
+                          className="w-full mt-2 px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-blue-500/50 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all"
+                          placeholder="Nom de l'entreprise"
                         />
                         <div className="absolute right-3 top-1/2 -translate-y-1/2">
                           <Building className="w-5 h-5 text-gray-500" />
@@ -405,15 +413,15 @@ export const Contact = () => {
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-sm font-medium text-gray-300">Phone</label>
+                      <label className="text-sm font-medium text-gray-300">Téléphone</label>
                       <div className="relative">
                         <input
                           type="tel"
                           name="phone"
                           value={formData.phone}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-blue-500/50 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all"
-                          placeholder="+1 (555) 000-0000"
+                          className="w-full mt-2 px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-blue-500/50 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all"
+                          placeholder="+213 XX XX XX XX"
                         />
                         <div className="absolute right-3 top-1/2 -translate-y-1/2">
                           <PhoneCall className="w-5 h-5 text-gray-500" />
@@ -421,31 +429,17 @@ export const Contact = () => {
                       </div>
                     </div>
                   </div>
+                  <CustomDropdown
+                    label="Service Intéressé"
+                    options={services}
+                    value={formData.service}
+                    onChange={(val) => setFormData({ ...formData, service: val })}
+                  />
+
 
                   <div className="space-y-2">
-                    <label className="text-sm font-medium text-gray-300">Service Interest *</label>
-                    <div className="relative">
-                      <select
-                        name="service"
-                        value={formData.service}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-blue-500/50 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all appearance-none"
-                      >
-                        <option value="">Select a service</option>
-                        {services.map((service, idx) => (
-                          <option key={idx} value={service}>{service}</option>
-                        ))}
-                      </select>
-                      <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
-                        <ChevronDown className="w-5 h-5 text-gray-500" />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-gray-300">Project Budget</label>
-                    <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
+                    <label className="text-sm font-medium text-gray-300">Budget du Projet</label>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                       {budgets.map((budget, idx) => (
                         <motion.button
                           key={idx}
@@ -454,7 +448,7 @@ export const Contact = () => {
                           whileTap={{ scale: 0.95 }}
                           onClick={() => setFormData({ ...formData, budget })}
                           className={cn(
-                            "px-3 py-2 rounded-lg text-sm transition-all",
+                            "px-3 mt-2 py-2 rounded-lg text-sm transition-all",
                             formData.budget === budget
                               ? "bg-gradient-to-r from-blue-500 to-cyan-500 text-white"
                               : "bg-white/5 hover:bg-white/10 border border-white/10 text-gray-300"
@@ -475,8 +469,8 @@ export const Contact = () => {
                         onChange={handleChange}
                         required
                         rows={4}
-                        className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-blue-500/50 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all resize-none"
-                        placeholder="Tell us about your project..."
+                        className="w-full mt-2 px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-blue-500/50 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all resize-none"
+                        placeholder="Parlez-nous de votre projet..."
                       />
                       <div className="absolute right-3 top-3">
                         <MessageCircle className="w-5 h-5 text-gray-500" />
@@ -493,11 +487,11 @@ export const Contact = () => {
                       {isSubmitting ? (
                         <>
                           <Loader2 className="w-5 h-5 animate-spin mr-2" />
-                          Sending...
+                          Envoi en cours...
                         </>
                       ) : (
                         <>
-                          Send Message
+                          Envoyer le Message
                           <Send className="ml-2 w-5 h-5" />
                         </>
                       )}
@@ -505,115 +499,56 @@ export const Contact = () => {
                   </div>
 
                   <p className="text-center text-sm text-gray-400">
-                    By submitting, you agree to our{" "}
-                    <a href="#" className="text-cyan-400 hover:text-cyan-300">Privacy Policy</a>
+                    En soumettant, vous acceptez notre{" "}
+                    <a href="#" className="text-cyan-400 hover:text-cyan-300">Politique de Confidentialité</a>
                   </p>
                 </form>
               </div>
             </motion.div>
           </div>
+{/* Map Section - Modified Version */}
+<motion.div
+  initial={{ opacity: 0, y: 30 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  className="mb-32"
+>
+  <div className="text-center mb-12">
+    <h2 className="text-4xl sm:text-5xl font-bold mb-6">
+      Visitez Notre <GradientText>Bureau</GradientText>
+    </h2>
+    <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+      Rendez-vous à notre siège à Chéraga, Alger
+    </p>
+  </div>
 
-          {/* Map Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-32"
-          >
-            <div className="text-center mb-12">
-              <h2 className="text-4xl sm:text-5xl font-bold mb-6">
-                Find Our <GradientText>Office</GradientText>
-              </h2>
-              <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-                Visit us at our headquarters in San Francisco's Tech Valley
-              </p>
-            </div>
+  <div className="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
+    {/* Interactive Map Container */}
+   <div className="w-full h-96 rounded-3xl overflow-hidden border border-white/10 mt-12">
+   {/* Google Maps Iframe */}
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3150.352824372116!2d2.9611272243613116!3d36.76743096954649!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x128fb10069799cfb%3A0x8d01439935b3ac0c!2sIteam%20Digital!5e1!3m2!1sar!2sdz!4v1766104031194!5m2!1sar!2sdz"
+        className="w-full h-full rounded-3xl border-0"
+        allowFullScreen
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+      ></iframe>
+</div>
+    
+  </div>
 
-            <div className="relative rounded-3xl overflow-hidden border border-white/10">
-              {/* Map Placeholder with Animation */}
-              <div className="relative h-96 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 overflow-hidden">
-                {/* Animated Grid */}
-                <div className="absolute inset-0 opacity-10">
-                  <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center" />
-                </div>
-                
-                {/* Map Marker */}
-                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-                  <motion.div
-                    animate={{
-                      y: [0, -10, 0],
-                      scale: [1, 1.1, 1],
-                    }}
-                    transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }}
-                    className="relative"
-                  >
-                    <div className="absolute -inset-4 bg-blue-500/20 rounded-full blur" />
-                    <div className="relative w-12 h-12 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center">
-                      <MapPin className="w-6 h-6" />
-                    </div>
-                  </motion.div>
-                </div>
+  {/* Map Controls & Information */}
+  <div className="flex flex-wrap items-center justify-center gap-4 mt-6">
+    
+    <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 border border-white/10">
+      <Clock className="w-4 h-4 text-cyan-400" />
+      <span className="text-sm text-gray-300">Dim-Jeu: 8h-16h</span>
+    </div>
+    
+   
+  </div>
 
-                {/* Map Coordinates */}
-                <div className="absolute bottom-6 left-6 p-4 rounded-xl bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-xl border border-white/10">
-                  <div className="text-sm text-gray-400 mb-2">Coordinates</div>
-                  <div className="text-white font-mono">37.7749° N, 122.4194° W</div>
-                </div>
-
-                {/* Address Card */}
-                <div className="absolute bottom-6 right-6 p-4 rounded-xl bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-xl border border-white/10">
-                  <div className="flex items-center gap-3 mb-2">
-                    <Building className="w-5 h-5 text-cyan-400" />
-                    <div className="text-sm font-semibold text-white">i-Team Headquarters</div>
-                  </div>
-                  <div className="text-sm text-gray-400">123 Tech Valley, San Francisco, CA 94107</div>
-                </div>
-              </div>
-            </div>
-
-            {/* Nearby Info */}
-            <div className="grid md:grid-cols-3 gap-6 mt-8">
-              {[
-                {
-                  icon: <Coffee className="w-5 h-5" />,
-                  title: "Coffee Shops",
-                  description: "Multiple cafes within walking distance"
-                },
-                {
-                  icon: <Shield className="w-5 h-5" />,
-                  title: "Secure Parking",
-                  description: "24/7 monitored parking garage"
-                },
-                {
-                  icon: <Zap className="w-5 h-5" />,
-                  title: "Public Transport",
-                  description: "2 blocks from BART station"
-                }
-              ].map((item, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.1 }}
-                  className="p-4 rounded-xl bg-white/5 border border-white/10"
-                >
-                  <div className="flex items-center gap-3">
-                    {item.icon}
-                    <div>
-                      <h4 className="font-semibold text-white">{item.title}</h4>
-                      <p className="text-sm text-gray-400">{item.description}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-
+</motion.div>
           {/* CTA Section */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -630,17 +565,17 @@ export const Contact = () => {
                   <PhoneCall className="w-10 h-10" />
                 </div>
                 <h2 className="text-4xl sm:text-5xl font-bold mb-6">
-                  Need Immediate Assistance?
+                  Besoin d'Assistance Immédiate ?
                 </h2>
                 <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-                  Call our support team directly for urgent matters.
+                  Appelez notre équipe de support directement pour les urgences.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                   <div className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                    +1 (555) 123-4567
+                    +213 549 402 461
                   </div>
                   <button className="px-8 py-3 rounded-lg bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300">
-                    Call Now
+                    Appeler Maintenant
                   </button>
                 </div>
               </div>
