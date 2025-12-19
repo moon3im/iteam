@@ -127,6 +127,7 @@ export default function Footer() {
                   </div>
                 </a>
               ))}
+              
             </div>
           </div>
               <div className="grid grid-cols-2">
