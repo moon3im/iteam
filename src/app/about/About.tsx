@@ -1252,19 +1252,21 @@ export const About = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-cyan-500/10 to-blue-500/10" />
               
               <div className="relative z-10">
-                <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-r from-blue-600 to-cyan-600 mb-8">
-                  <Target className="w-10 h-10" />
+                <div className="inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-r from-blue-600 to-cyan-600 mb-6 md:mb-8">
+                  <Users className="w-8 h-8 md:w-10 md:h-10" />
                 </div>
-                <h2 className="text-4xl sm:text-5xl font-bold mb-6">
-                  Prêt à Transformer Votre Présence Digitale ?
+                <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">
+                  Rejoignez Notre Aventure
                 </h2>
-                <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-                  Discutons de votre projet et créons ensemble une solution sur mesure 
-                  qui répond parfaitement à vos besoins.
+                <p className="text-gray-300 mb-6 md:mb-8 max-w-2xl mx-auto px-4">
+                  Faites partie d'une équipe qui façonne l'avenir de l'innovation digitale.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <GlowingButton className="px-8 py-4 text-lg font-semibold">
-                    Démarrer un Projet
+                  <GlowingButton 
+                    onClick={() => setIsModalOpen(true)}
+                    className="px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold"
+                  >
+                    Rejoindre Nous
                     <ArrowRight className="ml-2 w-5 h-5" />
                   </GlowingButton>
                   <button className="px-6 md:px-8 py-3 md:py-4 text-base md:text-lg rounded-lg bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300">
