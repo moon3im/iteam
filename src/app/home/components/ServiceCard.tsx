@@ -14,7 +14,6 @@ interface ServiceCardProps {
   listeFonctionnalites?: { texte: string; icone: React.ReactNode }[];
   index: number;
 }
-
 export const ServiceCard = ({
   icone,
   titre,
@@ -31,7 +30,7 @@ export const ServiceCard = ({
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
       whileHover={{ y: -10 }}
-      className="relative group"
+      className="relative group h-full flex flex-col" // ← اضفنا h-full و flex-col
     >
       {/* Effet de lueur */}
       <div className={cn(
@@ -39,7 +38,7 @@ export const ServiceCard = ({
         degrade.replace("from-", "from-").replace("to-", "to-")
       )} />
 
-      <div className="relative h-full p-8 rounded-3xl bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-xl border border-white/10 group-hover:border-white/30 transition-all duration-300">
+      <div className="relative p-8 rounded-3xl bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-xl border border-white/10 group-hover:border-white/30 transition-all duration-300 flex flex-col flex-1">
         {/* Icône */}
         <div className="mb-8">
           <div className="relative w-16 h-16 rounded-2xl bg-gradient-to-br from-white/10 to-white/5 border border-white/10 flex items-center justify-center">
@@ -54,7 +53,7 @@ export const ServiceCard = ({
 
         {/* Titre & Description */}
         <h3 className="text-2xl font-bold text-white mb-4">{titre}</h3>
-        <p className="text-gray-400 leading-relaxed mb-8">{description}</p>
+        <p className="text-gray-400 leading-relaxed mb-8 flex-1">{description}</p> {/* ← flex-1 هنا لتعبئة المساحة */}
 
         {/* Fonctionnalités */}
         <div className="space-y-3 mb-8">
@@ -83,20 +82,6 @@ export const ServiceCard = ({
             </div>
           )}
         </div>
-
-        {/* Appel à l'action */}
-        <button className="flex items-center gap-2 text-sm font-semibold group/btn">
-          <span className={cn(
-            "bg-gradient-to-r bg-clip-text text-transparent",
-            degrade
-          )}>
-            En savoir plus
-          </span>
-          <ArrowRight className={cn(
-            "w-4 h-4 transition-transform group-hover/btn:translate-x-1",
-            degrade.replace("from-", "text-").split(" ")[0]
-          )} />
-        </button>
       </div>
     </motion.div>
   );

@@ -2,7 +2,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Sparkles, Code2, Smartphone as Phone, Monitor, Server, CheckCircle, TrendingUp, Zap, Users, Shield, Bell, Database as DbIcon, Layers } from "lucide-react";
+import { Sparkles, Code2, Smartphone as Phone, Monitor, Server, CheckCircle, TrendingUp, Zap, Users, Shield, Bell, Database as DbIcon, Layers, Globe, PenTool, Video, Camera, Megaphone } from "lucide-react";
 import { GradientText } from "@/components/ui/GradientText";
 import { ServiceCard } from "../components/ServiceCard";
 
@@ -14,57 +14,85 @@ interface ServiceItem {
   degrade: string;
   listeFonctionnalites: Array<{ texte: string; icone: React.ReactNode }>;
 }
-
 const services: ServiceItem[] = [
   {
-    icone: <Code2 className="w-8 h-8" />,
-    titre: "Développement Web",
-    description: "Applications web modernes construites avec des technologies de pointe pour des performances optimales.",
-    fonctionnalites: ["React/Next.js", "TypeScript", "Responsive", "PWA"],
+    icone: <Globe className="w-8 h-8" />,
+    titre: "Solutions Digitales",
+    description: "Des solutions web modernes et fiables pour digitaliser et développer votre activité.",
+    fonctionnalites: [
+      "Création de sites web vitrine & sur mesure",
+      "Développement web et solutions digitales personnalisées",
+      "Applications web professionnelles",
+      "Hébergement web sécurisé et performant",
+      "Maintenance et support technique",
+      "Intégration de services et outils digitaux"
+    ],
     degrade: "from-blue-500 to-cyan-500",
     listeFonctionnalites: [
-      { texte: "Composants React Sur Mesure", icone: <CheckCircle className="w-4 h-4" /> },
-      { texte: "Optimisation SEO", icone: <TrendingUp className="w-4 h-4" /> },
-      { texte: "Réglage Performance", icone: <Zap className="w-4 h-4" /> }
+      { texte: "Solutions Web & Digitales", icone: <CheckCircle className="w-4 h-4" /> },
+      { texte: "Adapté à vos besoins métiers", icone: <Zap className="w-4 h-4" /> },
+      { texte: "Support et maintenance", icone: <Shield className="w-4 h-4" /> }
     ]
   },
   {
-    icone: <Phone className="w-8 h-8" />,
-    titre: "Applications Mobiles",
-    description: "Solutions mobiles natives et multiplateformes pour iOS et Android.",
-    fonctionnalites: ["React Native", "Flutter", "iOS/Android", "App Store"],
+    icone: <PenTool className="w-8 h-8" />,
+    titre: "Design & Branding",
+    description: "Une identité visuelle forte pour marquer les esprits et valoriser votre marque.",
+    fonctionnalites: [
+      "Création d’identité visuelle & branding",
+      "Design graphique print & digital",
+      "Impressions professionnelles tous types",
+      "Création de supports publicitaires",
+      "Chartes graphiques & déclinaisons",
+      "Visuels marketing et promotionnels"
+    ],
     degrade: "from-purple-500 to-pink-500",
     listeFonctionnalites: [
-      { texte: "Déploiement App Store", icone: <CheckCircle className="w-4 h-4" /> },
-      { texte: "Notifications Push", icone: <Bell className="w-4 h-4" /> },
-      { texte: "Support Hors-ligne", icone: <DbIcon className="w-4 h-4" /> }
+      { texte: "Identité Visuelle & Création Graphique", icone: <CheckCircle className="w-4 h-4" /> },
+      { texte: "Supports print & digital", icone: <Layers className="w-4 h-4" /> },
+      { texte: "Branding impactant", icone: <Sparkles className="w-4 h-4" /> }
     ]
   },
   {
-    icone: <Monitor className="w-8 h-8" />,
-    titre: "Design UI/UX",
-    description: "Designs centrés utilisateur qui combinent esthétique et fonctionnalité exceptionnelle.",
-    fonctionnalites: ["Figma", "Prototypage", "Tests Utilisateurs", "Systèmes Design"],
+    icone: <Video className="w-8 h-8" />,
+    titre: "Production Audiovisuelle",
+    description: "Du contenu visuel professionnel pour renforcer votre communication.",
+    fonctionnalites: [
+      "Photographie professionnelle",
+      "Vidéos promotionnelles & corporate",
+      "Reels, stories et formats courts",
+      "Création de contenu pour réseaux sociaux",
+      "Montage et post-production",
+      "Contenu visuel orienté marketing"
+    ],
     degrade: "from-cyan-500 to-blue-500",
     listeFonctionnalites: [
-      { texte: "Prototypes Interactifs", icone: <CheckCircle className="w-4 h-4" /> },
-      { texte: "Recherche Utilisateur", icone: <Users className="w-4 h-4" /> },
-      { texte: "Systèmes Design", icone: <Layers className="w-4 h-4" /> }
+      { texte: "Production Photo & Vidéo", icone: <CheckCircle className="w-4 h-4" /> },
+      { texte: "Contenu professionnel", icone: <Camera className="w-4 h-4" /> },
+      { texte: "Marketing visuel", icone: <Zap className="w-4 h-4" /> }
     ]
   },
   {
-    icone: <Server className="w-8 h-8" />,
-    titre: "Solutions Cloud",
-    description: "Infrastructure cloud évolutive et déploiement pour applications d'entreprise.",
-    fonctionnalites: ["AWS/Azure", "DevOps", "Microservices", "Kubernetes"],
+    icone: <Megaphone className="w-8 h-8" />,
+    titre: "Marketing & Communication",
+    description: "Des stratégies efficaces pour augmenter votre visibilité et vos résultats.",
+    fonctionnalites: [
+      "Marketing digital",
+      "Gestion professionnelle des réseaux sociaux",
+      "Création de stratégies de contenu",
+      "Publicité en ligne (Meta, campagnes sponsorisées)",
+      "Stratégie de communication globale",
+      "Analyse, suivi et optimisation des performances"
+    ],
     degrade: "from-indigo-500 to-blue-500",
     listeFonctionnalites: [
-      { texte: "Monitoring 24/7", icone: <CheckCircle className="w-4 h-4" /> },
-      { texte: "Auto-scaling", icone: <TrendingUp className="w-4 h-4" /> },
-      { texte: "Audit de Sécurité", icone: <Shield className="w-4 h-4" /> }
+      { texte: "Stratégie Marketing & Communication", icone: <CheckCircle className="w-4 h-4" /> },
+      { texte: "Optimisation visibilité", icone: <TrendingUp className="w-4 h-4" /> },
+      { texte: "Performance et analyse", icone: <Zap className="w-4 h-4" /> }
     ]
   }
 ];
+
 
 export const ServicesSection = () => {
   return (
