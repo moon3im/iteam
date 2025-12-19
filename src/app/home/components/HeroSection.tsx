@@ -15,6 +15,7 @@ import {
 import { GradientText } from "@/components/ui/GradientText";
 import { GlowingButton } from "@/components/ui/GlowingButton";
 import { StatCard } from "../components/StatCard";
+import { useRouter } from "next/navigation";
 
 interface HeroSectionProps {
   heroOpacity: any;
@@ -52,7 +53,7 @@ export const HeroSection = ({ heroOpacity, heroScale }: HeroSectionProps) => {
   return (
     <motion.section 
       style={{ opacity: heroOpacity, scale: heroScale }}
-      className="relative pt-20 min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8"
+      className="relative pt-24 min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8"
     >
       <FondHero />
       <ContenuHero />
@@ -104,7 +105,7 @@ const ContenuHero = () => {
         <TitrePrincipal />
         <SousTitre />
         <CTAsHero />
-        <StatsHero />
+        {/* <StatsHero /> */}
       </motion.div>
     </div>
   );
@@ -138,7 +139,7 @@ const TitrePrincipal = () => {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4, duration: 0.8 }}
-        className="text-5xl sm:text-7xl lg:text-8xl font-bold leading-tight tracking-tight"
+        className="text-5xl sm:text-7xl lg:text-8xl font-bold flex items-center justify-center gap-8 leading-tight tracking-tight"
       >
         <span className="block">Transformez</span>
         <span className="block mt-2">
@@ -181,6 +182,12 @@ const SousTitre = () => {
 };
 
 const CTAsHero = () => {
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push("/contact");
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -188,7 +195,11 @@ const CTAsHero = () => {
       transition={{ delay: 0.7 }}
       className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-12"
     >
-      <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+      <motion.button
+        onClick={handleClick}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+      >
         <GlowingButton className="px-10 py-5 text-lg font-semibold shadow-2xl shadow-blue-500/25">
           <span className="flex items-center gap-3">
             <Rocket className="w-6 h-6" />
@@ -196,10 +207,10 @@ const CTAsHero = () => {
             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-2 transition-transform" />
           </span>
         </GlowingButton>
-      </motion.div>
-      
-      <motion.button 
-        whileHover={{ scale: 1.05 }} 
+      </motion.button>
+
+      <motion.button
+        whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         className="group px-10 py-5 text-lg rounded-2xl bg-gradient-to-r from-white/0 via-white/5 to-white/0 backdrop-blur-xl border border-white/20 hover:border-cyan-500/50 transition-all duration-300 relative overflow-hidden"
       >
@@ -218,6 +229,7 @@ const CTAsHero = () => {
     </motion.div>
   );
 };
+
 
 const StatsHero = () => {
   return (

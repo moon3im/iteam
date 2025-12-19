@@ -11,16 +11,10 @@ import {
   Phone,
   Mail,
   MapPin,
-  Globe,
-  ArrowUpRight,
-  Sparkles,
   Home,
-  Option,
-  Rocket,
-  User,
+  Star,
   Users,
-  PhoneCall,
-  Star
+  PhoneCall
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -34,17 +28,17 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navLinks = [
-    { name: "Home", href: "/", icon: <Home className="w-4 h-4" /> },
-    { name: "Services", href: "/services",icon : <Star className="w-4 h-4" /> },
-    { name: "About", href: "/about", icon: <Users className="w-4 h-4" /> },
-    { name: "Contact", href: "/contact", icon: <PhoneCall className="w-4 h-4" /> },
+  const liensNavigation = [
+    { nom: "Accueil", href: "/", icone: <Home className="w-4 h-4" /> },
+    { nom: "Services", href: "/services", icone: <Star className="w-4 h-4" /> },
+    { nom: "À Propos", href: "/about", icone: <Users className="w-4 h-4" /> },
+    { nom: "Contact", href: "/contact", icone: <PhoneCall className="w-4 h-4" /> },
   ];
 
-  const contactInfo = [
-    { icon: <Phone className="w-4 h-4" />, text: "+213 555 123 456", href: "tel:+213555123456" },
-    { icon: <Mail className="w-4 h-4" />, text: "info@iteam.dz", href: "mailto:info@iteam.dz" },
-    { icon: <MapPin className="w-4 h-4" />, text: "Algiers, Algeria", href: "#" },
+  const infosContact = [
+    { icone: <Phone className="w-4 h-4" />, texte: "+213 555 123 456", href: "tel:+213555123456" },
+    { icone: <Mail className="w-4 h-4" />, texte: "info@iteam.dz", href: "mailto:info@iteam.dz" },
+    { icone: <MapPin className="w-4 h-4" />, texte: "Alger, Algérie", href: "#" },
   ];
 
   return (
@@ -65,21 +59,21 @@ export default function Header() {
           <img src="images/logo.png" alt="Logo" className="w-28" />
         </Link>
 
-        {/* Desktop Navigation */}
+        {/* Navigation Desktop */}
         <nav className="hidden lg:flex items-center gap-6">
-          {navLinks.map((link) => (
+          {liensNavigation.map((lien) => (
             <Link
-              key={link.href}
-              href={link.href}
+              key={lien.href}
+              href={lien.href}
               className="relative group"
             >
               <motion.div
                 whileHover={{ y: -2 }}
                 className="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-white/5 transition-all duration-300"
               >
-                <span className="text-lg">{link.icon}</span>
+                <span className="text-lg">{lien.icone}</span>
                 <span className="text-gray-300 font-medium group-hover:text-white transition-colors">
-                  {link.name}
+                  {lien.nom}
                 </span>
               </motion.div>
               <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-linear-to-r from-blue-400 to-cyan-400 group-hover:w-4/5 transition-all duration-300" />
@@ -87,31 +81,31 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* CTA Button */}
+        {/* Bouton CTA */}
         <div className="hidden lg:flex items-center gap-4">
           <Link
             href="/contact"
             className="relative group overflow-hidden px-6 py-3 rounded-xl bg-linear-to-r from-blue-600 to-cyan-600 font-semibold text-white shadow-lg hover:shadow-cyan-400/30 transition-all duration-300"
           >
             <span className="flex items-center gap-2 relative z-10">
-              Start Project
+              Démarrer un Projet
               <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </span>
             <div className="absolute inset-0 bg-linear-to-r from-blue-500 to-cyan-500 opacity-0 group-hover:opacity-80 transition-opacity duration-300 rounded-xl" />
           </Link>
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* Bouton Menu Mobile */}
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="lg:hidden p-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 transition-colors"
-          aria-label="Toggle menu"
+          aria-label="Ouvrir/fermer le menu"
         >
           {isOpen ? <X className="w-6 h-6 text-white" /> : <Menu className="w-6 h-6 text-white" />}
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Menu Mobile */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -122,47 +116,47 @@ export default function Header() {
             className="lg:hidden overflow-hidden bg-linear-to-b from-blue-900/95 to-blue-900/90 backdrop-blur-xl border-t border-white/10 rounded-b-2xl"
           >
             <div className="px-6 py-6 flex flex-col gap-4">
-              {navLinks.map((link, index) => (
+              {liensNavigation.map((lien, index) => (
                 <motion.div
-                  key={link.href}
+                  key={lien.href}
                   initial={{ x: -20, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: index * 0.1 }}
                 >
                   <Link
-                    href={link.href}
+                    href={lien.href}
                     onClick={() => setIsOpen(false)}
                     className="flex items-center gap-4 px-4 py-3 rounded-lg hover:bg-white/5 transition-all duration-300 group"
                   >
-                    <span className="text-2xl">{link.icon}</span>
-                    <span className="text-lg font-medium text-white">{link.name}</span>
+                    <span className="text-2xl">{lien.icone}</span>
+                    <span className="text-lg font-medium text-white">{lien.nom}</span>
                     <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-cyan-400 transition-all" />
                   </Link>
                 </motion.div>
               ))}
 
-              {/* Contact Info */}
+              {/* Informations de Contact */}
               <div className="mt-6 pt-4 border-t border-white/10">
-                {contactInfo.map((item, idx) => (
+                {infosContact.map((info, idx) => (
                   <a
                     key={idx}
-                    href={item.href}
+                    href={info.href}
                     className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors"
                     onClick={() => setIsOpen(false)}
                   >
-                    <div className="p-2 rounded-lg bg-white/5">{item.icon}</div>
-                    <span>{item.text}</span>
+                    <div className="p-2 rounded-lg bg-white/5">{info.icone}</div>
+                    <span>{info.texte}</span>
                   </a>
                 ))}
               </div>
 
-              {/* Mobile CTA */}
+              {/* CTA Mobile */}
               <Link
                 href="/contact"
                 onClick={() => setIsOpen(false)}
                 className="mt-6 block w-full text-center px-6 py-3 rounded-xl bg-linear-to-r from-blue-600 to-cyan-600 font-semibold text-white shadow-lg hover:shadow-cyan-400/30 transition-all duration-300"
               >
-                Start Your Project
+                Démarrer Votre Projet
               </Link>
             </div>
           </motion.div>

@@ -19,6 +19,10 @@ import {
   Target,
   Cpu,
   GitBranch,
+  Camera,
+  BarChart3,
+  Users,
+  Globe,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { GlowingButton } from "@/components/ui/GlowingButton";
@@ -41,168 +45,168 @@ export const ServicesMindMap = () => {
   const [activeService, setActiveService] = useState<number | null>(null);
   const [hoveredService, setHoveredService] = useState<number | null>(null);
 
-  const services: ServiceNode[] = [
-    {
-      id: 1,
-      title: "Web Development",
-      icon: <Code2 className="w-6 h-6" />,
-      description: "Modern web applications built with cutting-edge technologies",
-      color: "from-blue-500 to-cyan-500",
-      features: ["React/Next.js", "TypeScript", "Responsive Design", "PWA"],
-      details: {
-        title: "Full-Stack Web Solutions",
-        description:
-          "We build scalable web applications with modern frameworks and best practices.",
-        items: [
-          "Custom Web Applications",
-          "E-commerce Platforms",
-          "CRM & ERP Systems",
-          "Real-time Dashboards",
-          "API Development & Integration",
-          "Progressive Web Apps",
-        ],
-      },
-    },
-    {
-      id: 2,
-      title: "Mobile Apps",
-      icon: <Smartphone className="w-6 h-6" />,
-      description: "Native & cross-platform mobile solutions",
-      color: "from-purple-500 to-pink-500",
-      features: ["React Native", "Flutter", "iOS/Android", "App Store"],
-      details: {
-        title: "Mobile Application Development",
-        description:
-          "Native and cross-platform mobile applications for all devices.",
-        items: [
-          "iOS & Android Apps",
-          "Cross-platform Solutions",
-          "App Store Optimization",
-          "Push Notifications",
-          "Mobile Analytics",
-          "Offline Functionality",
-        ],
-      },
-    },
-    {
-      id: 3,
-      title: "UI/UX Design",
-      icon: <Palette className="w-6 h-6" />,
-      description: "User-centered designs that convert",
-      color: "from-cyan-500 to-emerald-500",
-      features: ["Figma", "Prototyping", "User Testing", "Design Systems"],
-      details: {
-        title: "User Experience Design",
-        description:
-          "Creating intuitive and beautiful interfaces that users love.",
-        items: [
-          "User Research & Testing",
-          "Wireframing & Prototyping",
-          "Design Systems",
-          "Brand Identity",
-          "Interaction Design",
-          "Accessibility Compliance",
-        ],
-      },
-    },
-    {
-      id: 4,
-      title: "Cloud Solutions",
-      icon: <Cloud className="w-6 h-6" />,
-      description: "Scalable cloud infrastructure",
-      color: "from-indigo-500 to-blue-500",
-      features: ["AWS/Azure", "DevOps", "Microservices", "Kubernetes"],
-      details: {
-        title: "Cloud Architecture & DevOps",
-        description:
-          "Enterprise-grade cloud infrastructure and deployment pipelines.",
-        items: [
-          "Cloud Migration",
-          "Serverless Architecture",
-          "Container Orchestration",
-          "CI/CD Pipelines",
-          "Infrastructure as Code",
-          "24/7 Monitoring",
-        ],
-      },
-    },
-    {
-      id: 5,
-      title: "AI/ML Solutions",
-      icon: <Brain className="w-6 h-6" />,
-      description: "Intelligent automation systems",
-      color: "from-amber-500 to-orange-500",
-      features: ["Machine Learning", "Computer Vision", "NLP", "Predictive Analytics"],
-      details: {
-        title: "Artificial Intelligence",
-        description: "Implementing AI and machine learning to solve complex business problems.",
-        items: [
-          "Predictive Analytics",
-          "Natural Language Processing",
-          "Computer Vision",
-          "Recommendation Systems",
-          "Automated Workflows",
-          "Data Science Consulting",
-        ],
-      },
-    },
-    {
-      id: 6,
-      title: "Security",
-      icon: <Shield className="w-6 h-6" />,
-      description: "Enterprise-grade security",
-      color: "from-red-500 to-pink-500",
-      features: ["Penetration Testing", "Security Audit", "Compliance", "Encryption"],
-      details: {
-        title: "Cybersecurity Services",
-        description: "Protecting your digital assets with advanced security measures.",
-        items: [
-          "Penetration Testing",
-          "Security Audits",
-          "GDPR Compliance",
-          "Zero Trust Architecture",
-          "Data Encryption",
-          "Incident Response",
-        ],
-      },
-    },
-    {
-      id: 7,
-      title: "DevOps",
-      icon: <Server className="w-6 h-6" />,
-      description: "Automated deployment pipelines",
-      color: "from-green-500 to-lime-500",
-      features: ["CI/CD", "Docker", "Kubernetes", "Monitoring"],
-      details: {
-        title: "DevOps & Cloud Operations",
-        description: "Efficient deployment and monitoring of applications.",
-        items: [
-          "Automated Deployment",
-          "Monitoring & Alerts",
-          "Containerization",
-          "Cloud Integration",
-        ],
-      },
-    },
-    {
-      id: 8,
-      title: "Data Management",
-      icon: <DatabaseBackup className="w-6 h-6" />,
-      description: "Database design and management",
-      color: "from-purple-400 to-pink-400",
-      features: ["SQL/NoSQL", "Data Warehousing", "ETL", "Analytics"],
-      details: {
-        title: "Database & Analytics",
-        description: "Organize, manage and analyze your data effectively.",
-        items: [
-          "Database Design",
-          "Data Warehousing",
-          "ETL Pipelines",
-          "Data Analytics",
-        ],
-      },
-    },
-  ];
+ const services: ServiceNode[] = [
+  {
+    id: 1,
+    title: "Création de Sites Web",
+    icon: <Globe className="w-6 h-6" />,
+    description: "Sites vitrines et sur mesure, performants et adaptés à votre image",
+    color: "from-blue-500 to-cyan-500",
+    features: ["Sites Vitrine", "Sites Sur Mesure", "Design Responsive", "Optimisation SEO"],
+    details: {
+      title: "Solutions Web Complètes",
+      description: "Nous concevons des sites web modernes et évolutifs, adaptés à vos besoins et à votre image de marque.",
+      items: [
+        "Sites Vitrine Professionnels",
+        "Sites Sur Mesure",
+        "Optimisation Responsive & Mobile",
+        "SEO & Performance",
+        "Intégration avec CRM et outils tiers",
+        "Maintenance & Support"
+      ]
+    }
+  },
+  {
+    id: 2,
+    title: "Solutions Digitales",
+    icon: <Code2 className="w-6 h-6" />,
+    description: "Applications web et plateformes digitales pour automatiser et optimiser vos processus",
+    color: "from-purple-500 to-pink-500",
+    features: ["Applications Web", "Intégration API", "Automatisation", "PWA"],
+    details: {
+      title: "Applications Web & Digitales",
+      description: "Développement de solutions digitales personnalisées pour vos besoins métiers.",
+      items: [
+        "Applications Web Sur Mesure",
+        "Plateformes E-commerce",
+        "Systèmes CRM & ERP",
+        "Tableaux de Bord et Reporting",
+        "Intégration d'API",
+        "Applications Web Progressives"
+      ]
+    }
+  },
+  {
+    id: 3,
+    title: "Design & Branding",
+    icon: <Palette className="w-6 h-6" />,
+    description: "Création d'identité visuelle et design graphique cohérents et impactants",
+    color: "from-cyan-500 to-emerald-500",
+    features: ["Identité Visuelle", "Supports Print & Digital", "Wireframes", "Prototypage"],
+    details: {
+      title: "Design & Identité de Marque",
+      description: "Création d'interfaces et supports graphiques qui reflètent votre marque et séduisent votre audience.",
+      items: [
+        "Création d'identité visuelle",
+        "Design graphique print et digital",
+        "Supports publicitaires et marketing",
+        "Wireframes et prototypes interactifs",
+        "Design d'interactions",
+        "Tests et validation UX"
+      ]
+    }
+  },
+  {
+    id: 4,
+    title: "Production Audiovisuelle",
+    icon: <Camera className="w-6 h-6" />,
+    description: "Photos et vidéos professionnelles pour valoriser votre marque et vos contenus",
+    color: "from-green-500 to-lime-500",
+    features: ["Photographie Pro", "Vidéos Promotionnelles", "Montage", "Contenu Social Media"],
+    details: {
+      title: "Photo & Vidéo Professionnelle",
+      description: "Production de contenu audiovisuel de qualité pour vos campagnes et réseaux sociaux.",
+      items: [
+        "Photographie professionnelle",
+        "Vidéos promotionnelles et corporate",
+        "Contenus pour réseaux sociaux",
+        "Montage et post-production",
+        "Optimisation pour diffusion digitale",
+        "Supports visuels pour marketing"
+      ]
+    }
+  },
+  {
+    id: 5,
+    title: "Marketing Digital",
+    icon: <BarChart3 className="w-6 h-6" />,
+    description: "Stratégies marketing et publicité digitale pour générer des résultats mesurables",
+    color: "from-lime-500 to-yellow-500",
+    features: ["Stratégie Digitale", "Publicité en Ligne", "Analytique", "Optimisation ROI"],
+    details: {
+      title: "Stratégies & Campagnes Digitales",
+      description: "Mise en place de campagnes marketing performantes et analytiques pour booster votre visibilité.",
+      items: [
+        "Campagnes publicitaires ciblées",
+        "Marketing sur les réseaux sociaux",
+        "Analyse et reporting des performances",
+        "Optimisation continue",
+        "Gestion de budget publicitaire",
+        "Recommandations stratégiques"
+      ]
+    }
+  },
+  {
+    id: 6,
+    title: "Gestion des Réseaux Sociaux",
+    icon: <Users className="w-6 h-6" />,
+    description: "Animation et développement de votre communauté sur les réseaux sociaux",
+    color: "from-yellow-500 to-orange-500",
+    features: ["Community Management", "Contenu Social", "Planification", "Reporting"],
+    details: {
+      title: "Social Media Management",
+      description: "Gestion et développement de votre présence sur les réseaux sociaux.",
+      items: [
+        "Gestion de pages sociales",
+        "Création et planification de contenu",
+        "Animation de la communauté",
+        "Suivi des KPI & reporting",
+        "Optimisation des performances",
+        "Stratégie de croissance sociale"
+      ]
+    }
+  },
+  {
+    id: 7,
+    title: "Hébergement & Cloud",
+    icon: <Cloud className="w-6 h-6" />,
+    description: "Solutions d'hébergement web et cloud sécurisées et évolutives",
+    color: "from-indigo-500 to-blue-500",
+    features: ["Hébergement Web", "Serveurs Cloud", "Backups", "Sécurité"],
+    details: {
+      title: "Infrastructure Cloud & Hébergement",
+      description: "Gestion de vos infrastructures web et cloud pour fiabilité et performance.",
+      items: [
+        "Hébergement sécurisé",
+        "Serveurs Cloud évolutifs",
+        "Sauvegardes automatiques",
+        "Sécurité et monitoring",
+        "Optimisation des performances",
+        "Support technique continu"
+      ]
+    }
+  },
+  {
+    id: 8,
+    title: "Support & Maintenance",
+    icon: <Shield className="w-6 h-6" />,
+    description: "Maintenance et support technique pour vos plateformes digitales",
+    color: "from-red-500 to-pink-500",
+    features: ["Support Technique", "Mises à Jour", "Monitoring", "Sécurité"],
+    details: {
+      title: "Support et Maintenance",
+      description: "Assurer la continuité et la sécurité de vos solutions digitales.",
+      items: [
+        "Mises à jour régulières",
+        "Surveillance et monitoring",
+        "Correction de bugs",
+        "Assistance technique",
+        "Optimisation continue",
+        "Sécurité renforcée"
+      ]
+    }
+  }
+];
 
   // Grid positions for services (3x3) excluding center (2,2)
   const gridPositions: [number, number][] = [
@@ -284,14 +288,9 @@ export const ServicesMindMap = () => {
   };
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center  p-4 overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-5" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl" />
-      </div>
-
+    <div className="relative flex items-center justify-center  p-4 overflow-hidden">
+     
+    
       {/* Animated Floating Particles */}
       <div className="absolute inset-0 pointer-events-none">
         {[...Array(15)].map((_, i) => (
@@ -318,83 +317,11 @@ export const ServicesMindMap = () => {
       </div>
 
       {/* Main Grid Container */}
-      <div className="relative w-full max-w-6xl">
-        {/* Connection Lines SVG */}
-        <svg className="absolute inset-0 w-full h-full pointer-events-none z-10">
-          <defs>
-            {/* Gradients for connections */}
-            <linearGradient id="line-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.8" />
-              <stop offset="50%" stopColor="#06b6d4" stopOpacity="0.9" />
-              <stop offset="100%" stopColor="#10b981" stopOpacity="0.8" />
-            </linearGradient>
-            
-            <linearGradient id="dot-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#3b82f6" />
-              <stop offset="100%" stopColor="#06b6d4" />
-            </linearGradient>
-
-            {/* Arrowhead marker */}
-            <marker
-              id="arrowhead"
-              markerWidth="10"
-              markerHeight="7"
-              refX="9"
-              refY="3.5"
-              orient="auto"
-            >
-              <polygon
-                points="0 0, 10 3.5, 0 7"
-                fill="#06b6d4"
-              />
-            </marker>
-          </defs>
-
-          {/* Animated Connection Lines */}
-          {gridPositions.map(([row, col], index) => {
-            const path = getLinePath(row, col);
-            
-            return (
-              <g key={`line-${index}`}>
-                {/* Curved path */}
-                <motion.path
-                  d={`M ${path.centerX}% ${path.centerY}% Q ${path.controlX1}% ${path.controlY1}%, ${path.endX}% ${path.endY}%`}
-                  stroke="url(#line-gradient)"
-                  strokeWidth="2"
-                  fill="none"
-                  initial={{ pathLength: 0 }}
-                  animate={{ pathLength: 1 }}
-                  transition={{ 
-                    duration: 1.5, 
-                    delay: index * 0.1,
-                    ease: "easeOut"
-                  }}
-                  className="opacity-70"
-                  markerEnd="url(#arrowhead)"
-                />
-                
-                {/* Animated dot along the path */}
-                <motion.circle
-                  r="3"
-                  fill="url(#dot-gradient)"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  <animateMotion
-                    dur="3s"
-                    repeatCount="indefinite"
-                    path={`M ${path.centerX}% ${path.centerY}% Q ${path.controlX1}% ${path.controlY1}%, ${path.endX}% ${path.endY}%`}
-                    rotate="auto"
-                  />
-                </motion.circle>
-              </g>
-            );
-          })}
-        </svg>
+      <div className="relative w-full mx-auto max-w-8xl">
+       
 
         {/* 3x3 Grid Layout */}
-        <div className="grid grid-cols-3 grid-rows-3 gap-12 max-w-6xl w-full relative">
+        <div className="grid grid-cols-3 grid-rows-3 gap-12 w-full relative p-8">
           {/* Render Service Cards */}
           {gridPositions.map((pos, index) => {
             const service = services[index];
@@ -403,7 +330,7 @@ export const ServicesMindMap = () => {
             return (
               <div
                 key={service.id}
-                className={`col-start-${col} row-start-${row} flex items-center justify-center relative`}
+                className={`col-start-${col} row-start-${row} w-full flex items-center justify-center relative`}
               >
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8, y: 20 }}
@@ -414,7 +341,7 @@ export const ServicesMindMap = () => {
                   onClick={() =>
                     setActiveService(activeService === service.id ? null : service.id)
                   }
-                  className="relative w-full max-w-xs"
+                  className="relative w-full "
                 >
                   {/* Cloud-shaped Service Card */}
                   <motion.div
@@ -455,17 +382,10 @@ export const ServicesMindMap = () => {
                         background: `linear-gradient(135deg, ${service.color})`,
                       }}
                     />
+                  <div className="flex items-center justify-start gap-6">
 
-                    {/* Icon with floating animation */}
                     <motion.div
-                      animate={{
-                        y: [0, -5, 0],
-                      }}
-                      transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        ease: "easeInOut"
-                      }}
+                    
                       className="mb-4"
                     >
                       <div className={cn(
@@ -476,18 +396,9 @@ export const ServicesMindMap = () => {
                         "shadow-lg"
                       )}>
                         {/* Icon glow */}
-                        <motion.div
-                          animate={{
-                            scale: hoveredService === service.id ? 1.2 : 1,
-                          }}
-                          className="absolute inset-0 rounded-xl blur"
-                          style={{
-                            background: `linear-gradient(135deg, ${service.color})`,
-                            opacity: 0.3
-                          }}
-                        />
+                        
                         <div className={cn(
-                          "relative z-10 text-xl",
+                          "relative z-10 text-center text-4xl",
                           service.color.replace("from-", "text-").split(" ")[0]
                         )}>
                           {service.icon}
@@ -496,7 +407,9 @@ export const ServicesMindMap = () => {
                     </motion.div>
                     
                     {/* Title */}
-                    <h3 className="text-lg font-bold text-white text-center mb-2">{service.title}</h3>
+                    <h3 className="text-xl font-bold text-white text-center mb-2">{service.title}</h3>
+                     </div>
+                    {/* Icon with floating animation */}
                     
                     {/* Description */}
                     <p className="text-gray-400 text-xs text-center mb-3 leading-relaxed">
@@ -599,12 +512,12 @@ export const ServicesMindMap = () => {
               />
 
               {/* Main center node */}
-              <div className="relative w-48 h-48 rounded-full  backdrop-blur-2xl  shadow-2xl shadow-blue-500/30 flex flex-col items-center justify-center">
+              <div className="relative w-28 h-23 rounded-full  backdrop-blur-2xl  shadow-2xl shadow-blue-500/30 flex flex-col items-center justify-center">
                 {/* Inner rotating element */}
 
                 {/* Logo content */}
                
-                <img src={"images/serviceLogo.png"} className="" />  
+                <img src={"images/serviceLogo.png"} className="size-32" />  
                   
               </div>
             </motion.div>

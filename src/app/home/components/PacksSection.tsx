@@ -25,7 +25,7 @@ const packs: PackItem[] = [
   {
     nom: "Débutant",
     icone: <Gem className="w-12 h-12" />,
-    prix: "2 999 €",
+    prix: "39,900 DZD",
     periode: "/projet",
     couleur: "from-blue-500 to-cyan-500",
     couleurFond: "bg-gradient-to-br from-blue-500/5 to-cyan-500/5",
@@ -45,7 +45,7 @@ const packs: PackItem[] = [
   {
     nom: "Professionnel",
     icone: <Crown className="w-12 h-12" />,
-    prix: "9 999 €",
+    prix: "59,900 DZD",
     periode: "/projet",
     couleur: "from-purple-500 to-pink-500",
     couleurFond: "bg-gradient-to-br from-purple-500/10 to-pink-500/10",
@@ -149,7 +149,7 @@ const CTAPersonnalise = () => {
       transition={{ delay: 0.4 }}
       className="mt-20 text-center"
     >
-      <div className="inline-flex items-center gap-4 p-6 rounded-2xl bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 backdrop-blur-xl border border-white/10 max-w-2xl mx-auto">
+      <div className="inline-flex items-center gap-4 p-6 rounded-2xl bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 backdrop-blur-xl border border-white/10 max-w-8xl mx-auto">
         <InfinityIcon className="w-8 h-8 text-blue-400" />
         <div className="text-left">
           <h4 className="text-xl font-bold text-white">Besoin d'une Solution Personnalisée ?</h4>

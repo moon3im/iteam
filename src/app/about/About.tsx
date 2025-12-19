@@ -38,14 +38,14 @@ import { GradientText } from "@/components/ui/GradientText";
 import { GlowingButton } from "@/components/ui/GlowingButton";
 import { TechBackground } from "@/components/ui/TechBackground";
 
-interface TeamMember {
+interface MembreEquipe {
   id: number;
-  name: string;
+  nom: string;
   role: string;
   bio: string;
   avatar: string;
-  color: string;
-  skills: string[];
+  couleur: string;
+  competences: string[];
   social: {
     linkedin?: string;
     twitter?: string;
@@ -54,87 +54,62 @@ interface TeamMember {
 }
 
 export const About = () => {
-  const teamMembers: TeamMember[] = [
+  const membresEquipe: MembreEquipe[] = [
     {
       id: 1,
-      name: "Mohammed Seddiq BRAHIMI",
-      role: "CEO & Founder",
-      bio: "Visionary leader with 5+ years in tech innovation",
+      nom: "Mohammed Seddiq BRAHIMI",
+      role: "CEO & Fondateur",
+      bio: "Leader visionnaire avec plus de 5 ans d'expérience en innovation technologique",
       avatar: "SB",
-      color: "from-blue-500 to-cyan-500",
-      skills: ["Strategy", "Leadership", "Innovation"],
+      couleur: "from-blue-500 to-cyan-500",
+      competences: ["Stratégie", "Leadership", "Innovation"],
       social: {
         linkedin: "#",
         twitter: "#"
       }
     },
-
   ];
 
-  const values = [
+  const valeurs = [
     {
-      icon: <Zap className="w-8 h-8" />,
-      title: "Innovation",
-      description: "Constantly pushing boundaries with cutting-edge technology",
-      color: "from-blue-500 to-cyan-500"
+      icone: <Zap className="w-8 h-8" />,
+      titre: "Innovation",
+      description: "Repousser constamment les limites avec les technologies de pointe",
+      couleur: "from-blue-500 to-cyan-500"
     },
     {
-      icon: <Shield className="w-8 h-8" />,
-      title: "Integrity",
-      description: "Transparent communication and ethical practices",
-      color: "from-cyan-500 to-emerald-500"
+      icone: <Shield className="w-8 h-8" />,
+      titre: "Intégrité",
+      description: "Communication transparente et pratiques éthiques",
+      couleur: "from-cyan-500 to-emerald-500"
     },
     {
-      icon: <Users className="w-8 h-8" />,
-      title: "Collaboration",
-      description: "Working together to achieve extraordinary results",
-      color: "from-emerald-500 to-green-500"
+      icone: <Users className="w-8 h-8" />,
+      titre: "Collaboration",
+      description: "Travailler ensemble pour obtenir des résultats extraordinaires",
+      couleur: "from-emerald-500 to-green-500"
     },
     {
-      icon: <Heart className="w-8 h-8" />,
-      title: "Passion",
-      description: "Love for technology and dedication to excellence",
-      color: "from-purple-500 to-pink-500"
+      icone: <Heart className="w-8 h-8" />,
+      titre: "Passion",
+      description: "Amour de la technologie et dévouement à l'excellence",
+      couleur: "from-purple-500 to-pink-500"
     }
   ];
 
-  const stats = [
-    { value: "2015", label: "Founded", icon: <Calendar className="w-6 h-6" /> },
-    { value: "250+", label: "Projects", icon: <Rocket className="w-6 h-6" /> },
-    { value: "50+", label: "Team Members", icon: <Users className="w-6 h-6" /> },
-    { value: "15+", label: "Countries", icon: <Globe className="w-6 h-6" /> }
+  const statistiques = [
+    { valeur: "2015", label: "Fondation", icone: <Calendar className="w-6 h-6" /> },
+    { valeur: "250+", label: "Projets", icone: <Rocket className="w-6 h-6" /> },
+    { valeur: "50+", label: "Membres d'Équipe", icone: <Users className="w-6 h-6" /> },
+    { valeur: "15+", label: "Pays", icone: <Globe className="w-6 h-6" /> }
   ];
 
   return (
     <div className="relative min-h-screen bg-linear-to-br from-gray-900 via-blue-900/20 to-gray-900 text-white overflow-hidden">
       <TechBackground />
       
-      {/* Floating Tech Icons */}
-      <div className="fixed inset-0 pointer-events-none">
-        {[Code, Server, Cpu, Brain, Palette].map((Icon, idx) => (
-          <motion.div
-            key={idx}
-            className="absolute opacity-5"
-            style={{
-              left: `${20 + idx * 15}%`,
-              top: `${20 + (idx % 3) * 20}%`,
-            }}
-            animate={{
-              y: [0, -20, 0],
-              rotate: [0, 5, -5, 0],
-            }}
-            transition={{
-              duration: 10 + idx * 2,
-              repeat: Infinity,
-              ease: "linear"
-            }}
-          >
-            <Icon className="w-24 h-24" />
-          </motion.div>
-        ))}
-      </div>
-
-      {/* Hero Section */}
+     
+      {/* Section Héro */}
       <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -150,15 +125,16 @@ export const About = () => {
               className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-blue-500/10 to-cyan-500/10 backdrop-blur-xl border border-blue-500/20 mb-8"
             >
               <Building className="w-5 h-5 text-cyan-400" />
-              <span className="text-sm font-semibold text-cyan-300">About i-Team</span>
+              <span className="text-sm font-semibold text-cyan-300">À propos d'i-Team</span>
             </motion.div>
             
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-8">
-              Pioneering <GradientText>Digital Excellence</GradientText>
+              Pionniers de <GradientText>l'Excellence Digitale</GradientText>
             </h1>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-              We are a collective of visionary designers, developers, and strategists 
-              dedicated to crafting digital solutions that transform businesses and create lasting impact.
+              Nous sommes un collectif de designers, développeurs et stratèges visionnaires 
+              dédiés à la création de solutions digitales qui transforment les entreprises 
+              et créent un impact durable.
             </p>
           </motion.div>
 
@@ -174,11 +150,11 @@ export const About = () => {
               <div className="absolute -top-6 -left-6 w-16 h-16 rounded-2xl bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center">
                 <Target className="w-8 h-8" />
               </div>
-              <h2 className="text-3xl font-bold mb-6 mt-6">Our Mission</h2>
+              <h2 className="text-3xl font-bold mb-6 mt-6">Notre Mission</h2>
               <p className="text-lg text-gray-300 leading-relaxed mb-6">
-                To empower businesses with innovative digital solutions that drive growth, 
-                enhance user experiences, and create sustainable competitive advantages 
-                in an ever-evolving technological landscape.
+                Permettre aux entreprises de prospérer grâce à des solutions digitales innovantes 
+                qui stimulent la croissance, améliorent les expériences utilisateurs et créent 
+                des avantages concurrentiels durables dans un paysage technologique en constante évolution.
               </p>
               <div className="flex items-center gap-2">
                 {[...Array(3)].map((_, i) => (
@@ -209,11 +185,11 @@ export const About = () => {
               <div className="absolute -top-6 -left-6 w-16 h-16 rounded-2xl bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center">
                 <Eye className="w-8 h-8" />
               </div>
-              <h2 className="text-3xl font-bold mb-6 mt-6">Our Vision</h2>
+              <h2 className="text-3xl font-bold mb-6 mt-6">Notre Vision</h2>
               <p className="text-lg text-gray-300 leading-relaxed mb-6">
-                To be the world's most trusted digital innovation partner, 
-                recognized for transforming industries through technology and 
-                creating meaningful impact for businesses and society.
+                Devenir le partenaire d'innovation digitale le plus fiable au monde, 
+                reconnu pour transformer les industries grâce à la technologie et 
+                créer un impact significatif pour les entreprises et la société.
               </p>
               <div className="flex items-center gap-2">
                 {[...Array(3)].map((_, i) => (
@@ -235,14 +211,14 @@ export const About = () => {
             </motion.div>
           </div>
 
-          {/* Stats */}
+          {/* Statistiques */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-32"
           >
-            {stats.map((stat, idx) => (
+            {statistiques.map((stat, idx) => (
               <motion.div
                 key={idx}
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -254,10 +230,10 @@ export const About = () => {
               >
                 <div className="flex items-center gap-4">
                   <div className="p-3 rounded-xl bg-gradient-to-br from-blue-500/20 to-cyan-500/20">
-                    <div className="text-blue-400">{stat.icon}</div>
+                    <div className="text-blue-400">{stat.icone}</div>
                   </div>
                   <div>
-                    <div className="text-3xl font-bold text-white">{stat.value}</div>
+                    <div className="text-3xl font-bold text-white">{stat.valeur}</div>
                     <div className="text-sm text-gray-400">{stat.label}</div>
                   </div>
                 </div>
@@ -265,7 +241,7 @@ export const About = () => {
             ))}
           </motion.div>
 
-          {/* Team Section */}
+          {/* Section Équipe */}
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -274,17 +250,17 @@ export const About = () => {
           >
             <div className="text-center mb-16">
               <h2 className="text-4xl sm:text-5xl font-bold mb-6">
-                Meet Our <GradientText>Dream Team</GradientText>
+                Rencontrez Notre <GradientText>Équipe de Rêve</GradientText>
               </h2>
               <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-                Passionate experts dedicated to turning your vision into reality
+                Des experts passionnés dédiés à transformer votre vision en réalité
               </p>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {teamMembers.map((member, idx) => (
+              {membresEquipe.map((membre, idx) => (
                 <motion.div
-                  key={member.id}
+                  key={membre.id}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -292,14 +268,14 @@ export const About = () => {
                   whileHover={{ y: -10 }}
                   className="relative group"
                 >
-                  {/* Glow Effect */}
+                  {/* Effet de lueur */}
                   <div className={cn(
                     "absolute -inset-0.5 rounded-3xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-300",
-                    member.color.replace("from-", "from-").replace("to-", "to-")
+                    membre.couleur.replace("from-", "from-").replace("to-", "to-")
                   )} />
 
                   <div className="relative p-6 rounded-3xl bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-xl border border-white/10 group-hover:border-white/30 transition-all duration-300">
-                    {/* Member Avatar */}
+                    {/* Avatar du membre */}
                     <div className="flex flex-col items-center gap-6 mb-6">
                       <div className="relative">
                         <motion.div
@@ -313,56 +289,55 @@ export const About = () => {
                           }}
                           className="absolute -inset-2 rounded-full border border-cyan-500/30"
                         />
-                        <img src={"images/seddik.jfif"} alt={member.name} className="w-62  rounded-full" />
-                       
+                        <img src={"images/seddik.jfif"} alt={membre.nom} className="w-62 rounded-full" />
                       </div>
                       <div>
-                        <h3 className="text-xl font-bold text-white">{member.name}</h3>
+                        <h3 className="text-xl font-bold text-white">{membre.nom}</h3>
                         <div className={cn(
                           "text-sm font-semibold bg-gradient-to-r bg-clip-text text-center text-transparent",
-                          member.color
+                          membre.couleur
                         )}>
-                          {member.role}
+                          {membre.role}
                         </div>
                       </div>
                     </div>
 
                     {/* Bio */}
-                    <p className="text-gray-400 mb-6">{member.bio}</p>
+                    <p className="text-gray-400 mb-6">{membre.bio}</p>
 
-                    {/* Skills */}
+                    {/* Compétences */}
                     <div className="flex flex-wrap gap-2 mb-6">
-                      {member.skills.map((skill, skillIdx) => (
+                      {membre.competences.map((competence, idxCompetence) => (
                         <span
-                          key={skillIdx}
+                          key={idxCompetence}
                           className="px-3 py-1 rounded-full bg-white/5 text-xs text-gray-300 border border-white/10"
                         >
-                          {skill}
+                          {competence}
                         </span>
                       ))}
                     </div>
 
-                    {/* Social Links */}
+                    {/* Liens sociaux */}
                     <div className="flex items-center gap-3">
-                      {member.social.linkedin && (
+                      {membre.social.linkedin && (
                         <a
-                          href={member.social.linkedin}
+                          href={membre.social.linkedin}
                           className="p-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 transition-colors"
                         >
                           <Linkedin className="w-4 h-4" />
                         </a>
                       )}
-                      {member.social.twitter && (
+                      {membre.social.twitter && (
                         <a
-                          href={member.social.twitter}
+                          href={membre.social.twitter}
                           className="p-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 transition-colors"
                         >
                           <Twitter className="w-4 h-4" />
                         </a>
                       )}
-                      {member.social.github && (
+                      {membre.social.github && (
                         <a
-                          href={member.social.github}
+                          href={membre.social.github}
                           className="p-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 transition-colors"
                         >
                           <Github className="w-4 h-4" />
@@ -375,7 +350,7 @@ export const About = () => {
             </div>
           </motion.div>
 
-          {/* Values */}
+          {/* Valeurs */}
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -384,12 +359,12 @@ export const About = () => {
           >
             <div className="text-center mb-16">
               <h2 className="text-4xl sm:text-5xl font-bold mb-6">
-                Our <GradientText>Core Values</GradientText>
+                Nos <GradientText>Valeurs Fondamentales</GradientText>
               </h2>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {values.map((value, idx) => (
+              {valeurs.map((valeur, idx) => (
                 <motion.div
                   key={idx}
                   initial={{ opacity: 0, y: 20 }}
@@ -405,19 +380,19 @@ export const About = () => {
                       "bg-gradient-to-br from-white/10 to-white/5",
                       "border border-white/10"
                     )}>
-                      <div className={value.color.replace("from-", "text-").split(" ")[0]}>
-                        {value.icon}
+                      <div className={valeur.couleur.replace("from-", "text-").split(" ")[0]}>
+                        {valeur.icone}
                       </div>
                     </div>
-                    <h3 className="text-xl font-bold text-white">{value.title}</h3>
+                    <h3 className="text-xl font-bold text-white">{valeur.titre}</h3>
                   </div>
-                  <p className="text-gray-400">{value.description}</p>
+                  <p className="text-gray-400">{valeur.description}</p>
                 </motion.div>
               ))}
             </div>
           </motion.div>
 
-          {/* Office & Culture */}
+          {/* Bureau & Culture */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -426,28 +401,28 @@ export const About = () => {
           >
             <div className="grid lg:grid-cols-2 gap-12">
               <div>
-                <h2 className="text-3xl font-bold mb-6">Our Culture</h2>
+                <h2 className="text-3xl font-bold mb-6">Notre Culture</h2>
                 <div className="space-y-6">
                   {[
                     {
-                      icon: <Coffee className="w-6 h-6" />,
-                      title: "Work-Life Balance",
-                      description: "Flexible hours and remote work options"
+                      icone: <Coffee className="w-6 h-6" />,
+                      titre: "Équilibre Vie Pro/Perso",
+                      description: "Horaires flexibles et options de travail à distance"
                     },
                     {
-                      icon: <TrendingUp className="w-6 h-6" />,
-                      title: "Growth Opportunities",
-                      description: "Continuous learning and career development"
+                      icone: <TrendingUp className="w-6 h-6" />,
+                      titre: "Opportunités de Croissance",
+                      description: "Apprentissage continu et développement de carrière"
                     },
                     {
-                      icon: <Heart className="w-6 h-6" />,
-                      title: "Inclusive Environment",
-                      description: "Diverse and welcoming workplace culture"
+                      icone: <Heart className="w-6 h-6" />,
+                      titre: "Environnement Inclusif",
+                      description: "Culture de travail diversifiée et accueillante"
                     },
                     {
-                      icon: <Zap className="w-6 h-6" />,
-                      title: "Innovation Focus",
-                      description: "Dedicated time for research and development"
+                      icone: <Zap className="w-6 h-6" />,
+                      titre: "Focus Innovation",
+                      description: "Temps dédié à la recherche et au développement"
                     }
                   ].map((item, idx) => (
                     <motion.div
@@ -459,10 +434,10 @@ export const About = () => {
                       className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10"
                     >
                       <div className="p-3 rounded-lg bg-gradient-to-br from-blue-500/20 to-cyan-500/20">
-                        {item.icon}
+                        {item.icone}
                       </div>
                       <div>
-                        <h4 className="font-semibold text-white">{item.title}</h4>
+                        <h4 className="font-semibold text-white">{item.titre}</h4>
                         <p className="text-sm text-gray-400">{item.description}</p>
                       </div>
                     </motion.div>
@@ -471,25 +446,25 @@ export const About = () => {
               </div>
 
               <div>
-                <h2 className="text-3xl font-bold mb-6">Our Office</h2>
+                <h2 className="text-3xl font-bold mb-6">Notre Bureau</h2>
                 <div className="relative p-8 rounded-3xl bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-xl border border-white/10 overflow-hidden">
                   <div className="flex items-center gap-4 mb-6">
                     <div className="p-3 rounded-xl bg-gradient-to-br from-blue-500/20 to-cyan-500/20">
                       <MapPin className="w-6 h-6 text-blue-400" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-white">San Francisco HQ</h3>
-                      <p className="text-gray-400">123 Tech Valley, San Francisco, CA</p>
+                      <h3 className="text-xl font-bold text-white">Siège Social Paris</h3>
+                      <p className="text-gray-400">123 Avenue de l'Innovation, Paris, France</p>
                     </div>
                   </div>
                   <div className="space-y-4">
                     <div className="flex items-center gap-3">
                       <Phone className="w-5 h-5 text-gray-400" />
-                      <span className="text-gray-300">+1 (555) 123-4567</span>
+                      <span className="text-gray-300">+33 (0)1 23 45 67 89</span>
                     </div>
                     <div className="flex items-center gap-3">
                       <Mail className="w-5 h-5 text-gray-400" />
-                      <span className="text-gray-300">hello@iteam.com</span>
+                      <span className="text-gray-300">contact@i-team.fr</span>
                     </div>
                   </div>
                   <div className="mt-8 h-48 rounded-xl bg-gradient-to-br from-blue-500/20 to-cyan-500/20 flex items-center justify-center">
@@ -500,7 +475,7 @@ export const About = () => {
             </div>
           </motion.div>
 
-          {/* CTA Section */}
+          {/* Section CTA */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -516,18 +491,18 @@ export const About = () => {
                   <Users className="w-10 h-10" />
                 </div>
                 <h2 className="text-4xl sm:text-5xl font-bold mb-6">
-                  Join Our Journey
+                  Rejoignez Notre Aventure
                 </h2>
                 <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-                  Be part of a team that's shaping the future of digital innovation.
+                  Faites partie d'une équipe qui façonne l'avenir de l'innovation digitale.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <GlowingButton className="px-8 py-4 text-lg font-semibold">
-                    View Careers
+                    Voir les Carrières
                     <ArrowRight className="ml-2 w-5 h-5" />
                   </GlowingButton>
                   <button className="px-8 py-4 text-lg rounded-lg bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300">
-                    Contact Our Team
+                    Contactez Notre Équipe
                   </button>
                 </div>
               </div>

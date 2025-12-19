@@ -57,7 +57,7 @@ export const PackCard = ({ pack, index }: PackCardProps) => {
       )}>
         {/* En-tête */}
         <div className={cn(
-          "p-8 pb-12",
+          "p-8",
           "bg-gradient-to-b from-transparent via-transparent to-black/20"
         )}>
           <div className="flex items-center justify-between mb-6">
@@ -75,7 +75,7 @@ export const PackCard = ({ pack, index }: PackCardProps) => {
           </div>
 
           {/* Prix */}
-          <div className="mb-8">
+          <div className="mb-2">
             <div className="flex items-baseline gap-2">
               <span className="text-5xl font-bold text-white">{pack.prix}</span>
               <span className="text-gray-400">{pack.periode}</span>
@@ -86,7 +86,7 @@ export const PackCard = ({ pack, index }: PackCardProps) => {
         {/* Corps */}
         <div className="p-8 pt-0">
           {/* Fonctionnalités */}
-          <ul className="space-y-3 mb-8">
+          <ul className="space-y-3 my-8">
             {pack.fonctionnalites.map((fonctionnalite, idx) => (
               <li key={idx} className="flex items-start gap-3">
                 <div className={cn(

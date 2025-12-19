@@ -16,8 +16,8 @@ interface TechCardProps {
 export const TechCard = ({ tech, index }: TechCardProps) => {
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.8, y: 50 }}
-      whileInView={{ opacity: 1, scale: 1, y: 0 }}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{
         duration: 0.6,
@@ -26,85 +26,81 @@ export const TechCard = ({ tech, index }: TechCardProps) => {
         stiffness: 100,
       }}
       whileHover={{
-        y: -10,
-        scale: 1.05,
+        y: -8,
         transition: { duration: 0.2 }
       }}
       className="relative group"
     >
-      <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/30 to-cyan-500/30 rounded-2xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      {/* Effet de lueur subtil */}
+      <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-blue-500/20 to-cyan-500/20 blur opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       
-      <div className="relative bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-xl border border-white/10 rounded-2xl p-8 group-hover:border-blue-500/50 transition-all duration-300 overflow-hidden">
+      {/* Carte principale */}
+      <div className="relative bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-lg border border-white/10 rounded-2xl p-8 group-hover:border-white/20 transition-all duration-300 overflow-hidden">
         
-        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-cyan-500/5" />
-          <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
+        {/* Pattern de fond minimal */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center" />
         </div>
-        
-        <IconeTechnologie tech={tech} />
-        <NomTechnologie nom={tech.nom} />
-        <LigneConnexion index={index} />
+
+        {/* Container d'icône élégant */}
+        <div className="relative mb-6">
+          {/* Fond de l'icône avec effet de lumière */}
+          <div className="relative w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-gray-900 to-gray-800 border border-white/10 group-hover:border-white/20 transition-all duration-300 overflow-hidden">
+            {/* Effet de lumière */}
+            <div className="absolute inset-0 bg-gradient-to-br from-white/0 via-white/5 to-white/0" />
+            
+            {/* Icône */}
+            <div className={cn(
+              "absolute inset-0 flex items-center justify-center transition-all duration-300",
+              "group-hover:scale-110",
+              tech.couleur
+            )}>
+              {tech.icone}
+            </div>
+          </div>
+          
+          {/* Point lumineux */}
+          <div className="absolute top-2 right-2 w-2 h-2 rounded-full bg-blue-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        </div>
+
+        {/* Nom de la technologie */}
+        <div className="text-center">
+          <h3 className="font-bold text-white text-lg mb-3 group-hover:text-cyan-100 transition-colors duration-300">
+            {tech.nom}
+          </h3>
+          
+          {/* Ligne décorative */}
+          <div className="relative h-px w-12 mx-auto bg-gradient-to-r from-transparent via-white/30 to-transparent overflow-hidden">
+            <motion.div
+              initial={{ x: "-100%" }}
+              whileInView={{ x: "100%" }}
+              transition={{ duration: 1.5, delay: index * 0.1 + 0.3 }}
+              className="absolute inset-y-0 w-12 bg-gradient-to-r from-blue-500/0 via-cyan-500 to-blue-500/0"
+            />
+          </div>
+        </div>
+
+        {/* Effet de connexion minimal */}
+        <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-0 group-hover:opacity-10 transition-opacity duration-500">
+          <motion.line
+            x1="50%"
+            y1="0%"
+            x2="50%"
+            y2="100%"
+            stroke="url(#simple-gradient)"
+            strokeWidth="0.5"
+            initial={{ pathLength: 0 }}
+            whileInView={{ pathLength: 1 }}
+            transition={{ duration: 1, delay: index * 0.1 }}
+          />
+          <defs>
+            <linearGradient id="simple-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.5" />
+              <stop offset="100%" stopColor="#06b6d4" stopOpacity="0.5" />
+            </linearGradient>
+          </defs>
+        </svg>
       </div>
     </motion.div>
-  );
-};
-
-const IconeTechnologie = ({ tech }: { tech: TechCardProps['tech'] }) => {
-  return (
-    <div className="relative mb-6">
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-full blur group-hover:blur-xl transition-all duration-500" />
-      <div className={cn(
-        "relative w-16 h-16 mx-auto rounded-2xl flex items-center justify-center",
-        "bg-gradient-to-br from-gray-900 to-gray-800",
-        "border border-white/10 group-hover:border-blue-500/50",
-        "transition-all duration-300"
-      )}>
-        <div className={cn(
-          "relative z-10 transition-all duration-300",
-          "group-hover:scale-110 group-hover:rotate-12",
-          tech.couleur
-        )}>
-          {tech.icone}
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const NomTechnologie = ({ nom }: { nom: string }) => {
-  return (
-    <div className="text-center">
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.2 }}
-        className="font-bold text-white text-lg mb-2"
-      >
-        {nom}
-      </motion.p>
-    </div>
-  );
-};
-
-const LigneConnexion = ({ index }: { index: number }) => {
-  return (
-    <svg className="absolute inset-0 w-full h-full pointer-events-none">
-      <motion.path
-        d="M0,0 L100,100"
-        stroke="url(#gradient)"
-        strokeWidth="1"
-        fill="none"
-        initial={{ pathLength: 0 }}
-        whileInView={{ pathLength: 1 }}
-        transition={{ duration: 1, delay: index * 0.1 }}
-        className="opacity-0 group-hover:opacity-30 transition-opacity"
-      />
-      <defs>
-        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.8" />
-          <stop offset="100%" stopColor="#06b6d4" stopOpacity="0.8" />
-        </linearGradient>
-      </defs>
-    </svg>
   );
 };
