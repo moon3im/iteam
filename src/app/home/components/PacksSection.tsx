@@ -23,72 +23,74 @@ interface PackItem {
 
 const packs: PackItem[] = [
   {
-    nom: "Débutant",
-    icone: <Gem className="w-12 h-12" />,
-    prix: "39,900 DZD",
-    periode: "/projet",
+    nom: "BASIC",
+    icone: <ShieldIcon className="w-12 h-12" />,
+    prix: "45,000 DZD",
+    periode: "/mois",
     couleur: "from-blue-500 to-cyan-500",
     couleurFond: "bg-gradient-to-br from-blue-500/5 to-cyan-500/5",
     couleurBordure: "border-blue-500/20",
     populaire: false,
     fonctionnalites: [
-      "Site Web Basique (5 pages)",
-      "Design Responsive",
-      "Formulaire de Contact",
-      "SEO Basique",
-      "1 Mois de Support",
-      "3 Révisions"
+      "Gestion de la page (3 posts / semaine)",
+      "Création de 10 visuels professionnels / mois",
+      "Planning de contenu simple (hebdomadaire)",
+      "Organisation et publication des posts",
+      "Rapport mensuel synthétique",
+      "Support basique"
     ],
-    cta: "Démarrez en Basique",
-    description: "Parfait pour les petites entreprises qui débutent leur transformation digitale"
+    cta: "Choisir BASIC",
+    description:
+      "Idéale pour les petites entreprises ou nouvelles pages souhaitant démarrer une présence digitale."
   },
   {
-    nom: "Professionnel",
-    icone: <Crown className="w-12 h-12" />,
-    prix: "59,900 DZD",
-    periode: "/projet",
+    nom: "STANDARD",
+    icone: <Gem className="w-12 h-12" />,
+    prix: "65,000 DZD",
+    periode: "/mois",
     couleur: "from-purple-500 to-pink-500",
     couleurFond: "bg-gradient-to-br from-purple-500/10 to-pink-500/10",
     couleurBordure: "border-purple-500/30",
     populaire: true,
     fonctionnalites: [
-      "Application Web Sur Mesure",
-      "Responsive Mobile",
-      "Intégration CMS",
-      "SEO Avancé",
-      "6 Mois de Support",
-      "Révisions Illimitées",
-      "Optimisation Performance",
-      "Tableau de Bord Analytics"
+      "Gestion complète Facebook & Instagram",
+      "Stratégie de contenu mensuelle",
+      "20 publications professionnelles / mois",
+      "Textes marketing optimisés",
+      "Planning éditorial structuré",
+      "Rapport mensuel détaillé (engagement & portée)",
+      "Optimisation de la présence digitale"
     ],
-    cta: "Passez Professionnel",
-    description: "Choix le plus populaire pour les entreprises en croissance"
+    cta: "Choisir STANDARD",
+    description:
+      "Parfaite pour les entreprises de taille moyenne souhaitant une présence digitale performante et cohérente."
   },
   {
-    nom: "Entreprise",
-    icone: <ShieldIcon className="w-12 h-12" />,
-    prix: "Sur Devis",
+    nom: "BUSINESS",
+    icone: <Crown className="w-12 h-12" />,
+    prix: "Sur devis",
     periode: "",
     couleur: "from-amber-500 to-orange-500",
     couleurFond: "bg-gradient-to-br from-amber-500/10 to-orange-500/10",
     couleurBordure: "border-amber-500/30",
     populaire: false,
     fonctionnalites: [
-      "Développement Full-stack",
-      "Application Mobile (iOS/Android)",
-      "Infrastructure Cloud",
-      "Monitoring 24/7",
-      "Support Prioritaire",
-      "Équipe Dédiée",
-      "Audit de Sécurité",
-      "Architecture Évolutive",
-      "Développement API",
-      "DevOps & CI/CD"
+      "Gestion avancée des réseaux sociaux",
+      "Publications, modération et interaction",
+      "Stratégie marketing digitale complète",
+      "Analyse marché, concurrence et audience",
+      "30 contenus premium / mois",
+      "Vidéos marketing (reels, stories, formats courts)",
+      "Gestion & optimisation des campagnes publicitaires",
+      "Rapports hebdomadaires et mensuels",
+      "Recommandations stratégiques personnalisées"
     ],
-    cta: "Contact Commercial",
-    description: "Transformation digitale complète pour les entreprises"
+    cta: "Contactez-nous",
+    description:
+      "Solution complète pour les marques recherchant une gestion professionnelle et des résultats concrets."
   }
 ];
+
 
 export const PacksSection = () => {
   return (

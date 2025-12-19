@@ -85,12 +85,18 @@ export const ProcessTimeline = ({ etapes }: ProcessTimelineProps) => {
             <span className="text-sm font-semibold text-cyan-300">Étape par Étape</span>
           </motion.div>
           
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-            Notre <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Processus</span>
-          </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            Un flux de travail clair et structuré conçu pour livrer des résultats fiables et de haute qualité.
-          </p>
+         <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+   Notre <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Processus</span>
+  <span className="block text-2xl sm:text-3xl lg:text-4xl mt-3 text-gray-300 font-medium">
+    Gestion des Réseaux Sociaux
+  </span>
+</h2>
+
+<p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+  Une méthode claire et structurée pour gérer, développer et optimiser votre présence
+  sur les réseaux sociaux avec des résultats mesurables et durables.
+</p>
+
         </motion.div>
 
         {/* Conteneur de timeline */}

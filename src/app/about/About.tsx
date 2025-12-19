@@ -59,10 +59,10 @@ export const About = () => {
       id: 1,
       nom: "Mohammed Seddiq BRAHIMI",
       role: "CEO & Fondateur",
-      bio: "Leader visionnaire avec plus de 5 ans d'expérience en innovation technologique",
+      bio: "Leader visionnaire avec plus de 5 ans d'expérience en innovation technologique et développement digital",
       avatar: "SB",
       couleur: "from-blue-500 to-cyan-500",
-      competences: ["Stratégie", "Leadership", "Innovation"],
+      competences: ["Stratégie Digitale", "Leadership", "Innovation", "Gestion de Projet"],
       social: {
         linkedin: "#",
         twitter: "#"
@@ -97,18 +97,10 @@ export const About = () => {
     }
   ];
 
-  const statistiques = [
-    { valeur: "2015", label: "Fondation", icone: <Calendar className="w-6 h-6" /> },
-    { valeur: "250+", label: "Projets", icone: <Rocket className="w-6 h-6" /> },
-    { valeur: "50+", label: "Membres d'Équipe", icone: <Users className="w-6 h-6" /> },
-    { valeur: "15+", label: "Pays", icone: <Globe className="w-6 h-6" /> }
-  ];
-
   return (
     <div className="relative min-h-screen bg-linear-to-br from-gray-900 via-blue-900/20 to-gray-900 text-white overflow-hidden">
       <TechBackground />
       
-     
       {/* Section Héro */}
       <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
@@ -129,12 +121,12 @@ export const About = () => {
             </motion.div>
             
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-8">
-              Pionniers de <GradientText>l'Excellence Digitale</GradientText>
+             Accélérez Votre <GradientText>Transformation Digitale</GradientText>
             </h1>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-              Nous sommes un collectif de designers, développeurs et stratèges visionnaires 
-              dédiés à la création de solutions digitales qui transforment les entreprises 
-              et créent un impact durable.
+              Agence digitale innovante spécialisée dans la création de solutions sur mesure 
+              qui valorisent votre image, optimisent votre présence en ligne et accélèrent 
+              votre croissance commerciale.
             </p>
           </motion.div>
 
@@ -152,26 +144,20 @@ export const About = () => {
               </div>
               <h2 className="text-3xl font-bold mb-6 mt-6">Notre Mission</h2>
               <p className="text-lg text-gray-300 leading-relaxed mb-6">
-                Permettre aux entreprises de prospérer grâce à des solutions digitales innovantes 
-                qui stimulent la croissance, améliorent les expériences utilisateurs et créent 
-                des avantages concurrentiels durables dans un paysage technologique en constante évolution.
+                Chez i-Team, notre mission est de fournir des solutions digitales complètes et personnalisées 
+                qui aident nos clients à se démarquer, à valoriser leur image et à atteindre leurs objectifs 
+                avec efficacité et créativité. Nous combinons technologie, design et stratégie pour transformer 
+                chaque projet en une expérience digitale réussie et durable.
               </p>
-              <div className="flex items-center gap-2">
-                {[...Array(3)].map((_, i) => (
-                  <motion.div
-                    key={i}
-                    className="w-2 h-2 rounded-full bg-cyan-400"
-                    animate={{
-                      scale: [1, 1.5, 1],
-                      opacity: [0.5, 1, 0.5],
-                    }}
-                    transition={{
-                      duration: 1.5,
-                      repeat: Infinity,
-                      delay: i * 0.2,
-                    }}
-                  />
-                ))}
+              <div className="flex items-center gap-4 mt-6">
+                <div className="flex items-center gap-2 text-sm text-cyan-300">
+                  <Code className="w-4 h-4" />
+                  <span>Solutions personnalisées</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm text-cyan-300">
+                  <Palette className="w-4 h-4" />
+                  <span>Design créatif</span>
+                </div>
               </div>
             </motion.div>
 
@@ -187,59 +173,23 @@ export const About = () => {
               </div>
               <h2 className="text-3xl font-bold mb-6 mt-6">Notre Vision</h2>
               <p className="text-lg text-gray-300 leading-relaxed mb-6">
-                Devenir le partenaire d'innovation digitale le plus fiable au monde, 
-                reconnu pour transformer les industries grâce à la technologie et 
-                créer un impact significatif pour les entreprises et la société.
+                Nous aspirons à devenir une référence incontournable dans le monde digital et créatif, 
+                reconnue pour notre innovation, notre qualité de service et notre capacité à anticiper 
+                les besoins du marché. Chez i-Team, nous visons à construire des relations durables avec 
+                nos clients en contribuant à leur succès et à leur croissance.
               </p>
-              <div className="flex items-center gap-2">
-                {[...Array(3)].map((_, i) => (
-                  <motion.div
-                    key={i}
-                    className="w-2 h-2 rounded-full bg-purple-400"
-                    animate={{
-                      scale: [1, 1.5, 1],
-                      opacity: [0.5, 1, 0.5],
-                    }}
-                    transition={{
-                      duration: 1.5,
-                      repeat: Infinity,
-                      delay: i * 0.2,
-                    }}
-                  />
-                ))}
+              <div className="flex items-center gap-4 mt-6">
+                <div className="flex items-center gap-2 text-sm text-purple-300">
+                  <TrendingUp className="w-4 h-4" />
+                  <span>Croissance durable</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm text-purple-300">
+                  <Star className="w-4 h-4" />
+                  <span>Référence qualité</span>
+                </div>
               </div>
             </motion.div>
           </div>
-
-          {/* Statistiques */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-32"
-          >
-            {statistiques.map((stat, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                whileHover={{ y: -5 }}
-                className="relative p-6 rounded-2xl bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-xl border border-white/10 hover:border-blue-500/30 transition-all duration-300"
-              >
-                <div className="flex items-center gap-4">
-                  <div className="p-3 rounded-xl bg-gradient-to-br from-blue-500/20 to-cyan-500/20">
-                    <div className="text-blue-400">{stat.icone}</div>
-                  </div>
-                  <div>
-                    <div className="text-3xl font-bold text-white">{stat.valeur}</div>
-                    <div className="text-sm text-gray-400">{stat.label}</div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
 
           {/* Section Équipe */}
           <motion.div
@@ -250,10 +200,10 @@ export const About = () => {
           >
             <div className="text-center mb-16">
               <h2 className="text-4xl sm:text-5xl font-bold mb-6">
-                Rencontrez Notre <GradientText>Équipe de Rêve</GradientText>
+                Notre <GradientText>Équipe Passionnée</GradientText>
               </h2>
               <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-                Des experts passionnés dédiés à transformer votre vision en réalité
+                Une équipe de professionnels dévoués à transformer votre vision en réalité digitale
               </p>
             </div>
 
@@ -361,6 +311,9 @@ export const About = () => {
               <h2 className="text-4xl sm:text-5xl font-bold mb-6">
                 Nos <GradientText>Valeurs Fondamentales</GradientText>
               </h2>
+              <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+                Les principes qui guident chaque décision et action au sein d'i-Team
+              </p>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -401,28 +354,28 @@ export const About = () => {
           >
             <div className="grid lg:grid-cols-2 gap-12">
               <div>
-                <h2 className="text-3xl font-bold mb-6">Notre Culture</h2>
+                <h2 className="text-3xl font-bold mb-6">Notre Culture d'Équipe</h2>
                 <div className="space-y-6">
                   {[
                     {
-                      icone: <Coffee className="w-6 h-6" />,
-                      titre: "Équilibre Vie Pro/Perso",
-                      description: "Horaires flexibles et options de travail à distance"
+                      icone: <Code className="w-6 h-6" />,
+                      titre: "Innovation Continue",
+                      description: "Veille technologique et adoption des dernières innovations"
                     },
                     {
-                      icone: <TrendingUp className="w-6 h-6" />,
-                      titre: "Opportunités de Croissance",
-                      description: "Apprentissage continu et développement de carrière"
+                      icone: <Users className="w-6 h-6" />,
+                      titre: "Collaboration Étroite",
+                      description: "Travail d'équipe et communication transparente"
                     },
                     {
                       icone: <Heart className="w-6 h-6" />,
-                      titre: "Environnement Inclusif",
-                      description: "Culture de travail diversifiée et accueillante"
+                      titre: "Passion du Métier",
+                      description: "Engagement et dévouement à chaque projet"
                     },
                     {
-                      icone: <Zap className="w-6 h-6" />,
-                      titre: "Focus Innovation",
-                      description: "Temps dédié à la recherche et au développement"
+                      icone: <Shield className="w-6 h-6" />,
+                      titre: "Qualité Garantie",
+                      description: "Standards d'excellence dans chaque livrable"
                     }
                   ].map((item, idx) => (
                     <motion.div
@@ -448,29 +401,49 @@ export const About = () => {
               <div>
                 <h2 className="text-3xl font-bold mb-6">Notre Bureau</h2>
                 <div className="relative p-8 rounded-3xl bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-xl border border-white/10 overflow-hidden">
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="p-3 rounded-xl bg-gradient-to-br from-blue-500/20 to-cyan-500/20">
-                      <MapPin className="w-6 h-6 text-blue-400" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-white">Siège Social Paris</h3>
-                      <p className="text-gray-400">123 Avenue de l'Innovation, Paris, France</p>
-                    </div>
-                  </div>
-                  <div className="space-y-4">
-                    <div className="flex items-center gap-3">
-                      <Phone className="w-5 h-5 text-gray-400" />
-                      <span className="text-gray-300">+33 (0)1 23 45 67 89</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <Mail className="w-5 h-5 text-gray-400" />
-                      <span className="text-gray-300">contact@i-team.fr</span>
-                    </div>
-                  </div>
-                  <div className="mt-8 h-48 rounded-xl bg-gradient-to-br from-blue-500/20 to-cyan-500/20 flex items-center justify-center">
-                    <MapPin className="w-12 h-12 text-white/30" />
-                  </div>
-                </div>
+  
+  {/* Header */}
+  <div className="flex items-center gap-4 mb-6">
+    <div className="p-3 rounded-xl bg-gradient-to-br from-blue-500/20 to-cyan-500/20">
+      <MapPin className="w-6 h-6 text-blue-400" />
+    </div>
+    <div>
+      <h3 className="text-xl font-bold text-white">Siège Social – Algérie</h3>
+      <p className="text-gray-400">
+        25 Boulevard Ouaked Ahmed، Cheraga 16002
+      </p>
+    </div>
+  </div>
+
+  {/* Contact info */}
+  <div className="space-y-4">
+    <div className="flex items-center gap-3">
+      <Phone className="w-5 h-5 text-gray-400" />
+      <span className="text-gray-300">+213 549 402 461</span>
+    </div>
+
+    <div className="flex items-center gap-3">
+      <Mail className="w-5 h-5 text-gray-400" />
+      <span className="text-gray-300">contact@iteam.dz</span>
+    </div>
+  </div>
+
+  {/* Map */}
+  <div className="mt-8 h-48 rounded-xl overflow-hidden border border-white/10">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6300.705974918544!2d2.958552!3d36.767427!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x128fb10069799cfb%3A0x8d01439935b3ac0c!2sIteam%20Digital!5e1!3m2!1sar!2sdz!4v1766162893709!5m2!1sar!2sdz"
+      width="100%"
+      height="100%"
+      style={{ border: 0 }}
+      allowFullScreen
+      loading="lazy"
+      referrerPolicy="no-referrer-when-downgrade"
+      className="rounded-xl"
+    />
+  </div>
+
+</div>
+
               </div>
             </div>
           </motion.div>
@@ -488,17 +461,18 @@ export const About = () => {
               
               <div className="relative z-10">
                 <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-r from-blue-600 to-cyan-600 mb-8">
-                  <Users className="w-10 h-10" />
+                  <Target className="w-10 h-10" />
                 </div>
                 <h2 className="text-4xl sm:text-5xl font-bold mb-6">
-                  Rejoignez Notre Aventure
+                  Prêt à Transformer Votre Présence Digitale ?
                 </h2>
                 <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-                  Faites partie d'une équipe qui façonne l'avenir de l'innovation digitale.
+                  Discutons de votre projet et créons ensemble une solution sur mesure 
+                  qui répond parfaitement à vos besoins.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <GlowingButton className="px-8 py-4 text-lg font-semibold">
-                    Voir les Carrières
+                    Démarrer un Projet
                     <ArrowRight className="ml-2 w-5 h-5" />
                   </GlowingButton>
                   <button className="px-8 py-4 text-lg rounded-lg bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300">

@@ -26,23 +26,23 @@ export default function Footer() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  /* ✅ SERVICES i-Team */
   const services = [
-    "Développement Web",
-    "Applications Mobiles",
-    "Design UI/UX",
-    "Solutions Cloud",
+    "Création de Sites Web",
+    "Applications Web & SaaS",
+    "Design Graphique & Branding",
+    "Gestion des Réseaux Sociaux",
     "Marketing Digital",
-    "Services DevOps",
+    "Production Photo & Vidéo",
   ];
 
   const liensRapides = [
-    { nom: "Accueil", href: "/" },
-    { nom: "À Propos", href: "/about" },
-    { nom: "Services", href: "/services" },
-    { nom: "Projets", href: "/projects" },
-    { nom: "Carrières", href: "/careers" },
-    { nom: "Blog", href: "/blog" },
-  ];
+  { nom: "Accueil", href: "/" },
+  { nom: "Services", href: "/services" },
+  { nom: "À Propos", href: "/about" },
+  { nom: "Contact", href: "/contact" },
+];
+
 
   const liensEntreprise = [
     { nom: "Politique de Confidentialité", href: "/privacy" },
@@ -51,60 +51,78 @@ export default function Footer() {
     { nom: "Plan du Site", href: "/sitemap" },
   ];
 
+  /* ✅ RÉSEAUX SOCIAUX OFFICIELS */
   const liensSociaux = [
-    { icone: <Facebook className="w-5 h-5" />, href: "#", label: "Facebook" },
-    { icone: <Twitter className="w-5 h-5" />, href: "#", label: "Twitter" },
-    { icone: <Linkedin className="w-5 h-5" />, href: "#", label: "LinkedIn" },
-    { icone: <Instagram className="w-5 h-5" />, href: "#", label: "Instagram" },
+    {
+      icone: <Facebook className="w-5 h-5" />,
+      href: "https://facebook.com/iteam.digital",
+      label: "Facebook",
+    },
+    {
+      icone: <Instagram className="w-5 h-5" />,
+      href: "https://instagram.com/iteam.dz",
+      label: "Instagram",
+    },
+    {
+      icone: <Linkedin className="w-5 h-5" />,
+      href: "https://linkedin.com/company/iteam-digital/",
+      label: "LinkedIn",
+    },
   ];
 
+  /* ✅ CONTACT i-Team */
   const infosContact = [
-    { icone: <Mail className="w-5 h-5" />, texte: "info@iteam.dz", href: "mailto:info@iteam.dz" },
-    { icone: <Phone className="w-5 h-5" />, texte: "+213 555 123 456", href: "tel:+213555123456" },
-    { icone: <MapPin className="w-5 h-5" />, texte: "123 Rue de l'Innovation, Alger, Algérie", href: "#" },
+    {
+      icone: <Phone className="w-5 h-5" />,
+      texte: "+213 549 402 461",
+      href: "tel:+213549402461",
+    },
+    {
+      icone: <Mail className="w-5 h-5" />,
+      texte: "contact@iteam.digital",
+      href: "mailto:contact@iteam.digital",
+    },
+    {
+      icone: <MapPin className="w-5 h-5" />,
+      texte: "25 Boulevard Ouaked Ahmed, Cheraga 16002",
+      href: "https://maps.google.com/?q=25+Boulevard+Ouaked+Ahmed+Cheraga",
+    },
   ];
 
   const statistiques = [
-    { icone: <Award className="w-5 h-5" />, valeur: "50+", label: "Récompenses" },
+    { icone: <Award className="w-5 h-5" />, valeur: "50+", label: "Projets Réalisés" },
     { icone: <Users className="w-5 h-5" />, valeur: "100+", label: "Clients Satisfaits" },
     { icone: <Clock className="w-5 h-5" />, valeur: "24/7", label: "Support" },
-    { icone: <Shield className="w-5 h-5" />, valeur: "99.9%", label: "Disponibilité" },
+    { icone: <Shield className="w-5 h-5" />, valeur: "100%", label: "Engagement Qualité" },
   ];
 
   return (
     <footer className="relative bg-linear-to-b from-gray-900 via-blue-900/30 to-gray-900 border-t border-white/10">
-      {/* Éléments décoratifs */}
       <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5" />
-      
-      {/* Contenu principal du pied de page */}
-      <div className="relative z-10 container mx-auto px-6 py-16">
-        {/* Section Statistiques */}
-     
 
+      <div className="relative z-10 container mx-auto px-6 py-16">
         <div className="grid lg:grid-cols-4 gap-10 mb-16">
-          {/* Informations de l'entreprise */}
+          {/* Entreprise */}
           <div className="space-y-6">
-            <div className="flex items-center gap-3">
-              <div className="relative">
-                 <Link href="/" className="flex w-full justify-center items-center gap-2 group">
-          <img src="images/logo.png" alt="Logo" className="w-36 self-center" />
-        </Link>
-              </div>
-            </div>
-            
+            <Link href="/" className="flex justify-center">
+              <img src="images/logo.png" alt="Logo i-Team" className="w-36" />
+            </Link>
+
             <p className="text-gray-400 leading-relaxed">
-              Nous créons des expériences digitales exceptionnelles qui transforment les entreprises et stimulent l'innovation dans le paysage numérique moderne.
+              i-Team est une agence digitale spécialisée dans les solutions web,
+              le marketing digital et la création de contenu pour booster votre présence en ligne.
             </p>
-            
+
             <div className="flex gap-4">
               {liensSociaux.map((social, idx) => (
                 <a
                   key={idx}
                   href={social.href}
+                  target="_blank"
                   aria-label={social.label}
                   className="p-2 rounded-lg bg-white/5 hover:bg-blue-500/20 border border-white/10 hover:border-blue-500/30 transition-all duration-300 group"
                 >
-                  <div className="text-gray-400 group-hover:text-white transition-colors">
+                  <div className="text-gray-400 group-hover:text-white">
                     {social.icone}
                   </div>
                 </a>
@@ -115,23 +133,12 @@ export default function Footer() {
           {/* Liens rapides */}
           <div>
             <h3 className="text-lg font-semibold text-white mb-6 flex items-center gap-2">
-              Liens Rapides
-              <ChevronRight className="w-4 h-4 text-cyan-400" />
+              Liens Rapides <ChevronRight className="w-4 h-4 text-cyan-400" />
             </h3>
             <ul className="space-y-3">
               {liensRapides.map((lien, idx) => (
-                <motion.li
-                  key={idx}
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.05 }}
-                >
-                  <Link
-                    href={lien.href}
-                    className="flex items-center gap-2 text-gray-400 hover:text-cyan-400 transition-colors group"
-                  >
-                    <div className="w-1 h-1 rounded-full bg-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <motion.li key={idx} initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+                  <Link href={lien.href} className="flex items-center gap-2 text-gray-400 hover:text-cyan-400">
                     <span>{lien.nom}</span>
                   </Link>
                 </motion.li>
@@ -142,64 +149,53 @@ export default function Footer() {
           {/* Services */}
           <div>
             <h3 className="text-lg font-semibold text-white mb-6 flex items-center gap-2">
-              Nos Services
-              <ChevronRight className="w-4 h-4 text-cyan-400" />
+              Nos Services <ChevronRight className="w-4 h-4 text-cyan-400" />
             </h3>
             <ul className="space-y-3">
               {services.map((service, idx) => (
-                <motion.li
-                  key={idx}
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.05 }}
-                >
-                  <Link
-                    href="/services"
-                    className="flex items-center gap-2 text-gray-400 hover:text-cyan-400 transition-colors group"
-                  >
-                    <div className="w-1 h-1 rounded-full bg-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <span>{service}</span>
+                <motion.li key={idx} initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+                  <Link href="/services" className="text-gray-400 hover:text-cyan-400">
+                    {service}
                   </Link>
                 </motion.li>
               ))}
             </ul>
           </div>
 
-          {/* Informations de contact */}
+          {/* Contact */}
           <div>
             <h3 className="text-lg font-semibold text-white mb-6 flex items-center gap-2">
-              Contactez-nous
-              <ChevronRight className="w-4 h-4 text-cyan-400" />
+              Contactez-nous <ChevronRight className="w-4 h-4 text-cyan-400" />
             </h3>
             <div className="space-y-4">
               {infosContact.map((info, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.1 }}
-                  className="flex items-start gap-3"
-                >
+                <div key={idx} className="flex gap-3">
                   <div className="p-2 rounded-lg bg-linear-to-r from-blue-500/20 to-cyan-500/20">
                     {info.icone}
                   </div>
-                  <div>
-                    <a
-                      href={info.href}
-                      className="text-gray-400 hover:text-cyan-400 transition-colors"
-                    >
-                      {info.texte}
-                    </a>
-                  </div>
-                </motion.div>
+                  <a href={info.href} className="text-gray-400 hover:text-cyan-400">
+                    {info.texte}
+                  </a>
+                </div>
               ))}
             </div>
           </div>
         </div>
 
-        {/* Newsletter */}
+        {/* Bottom */}
+        <div className="pt-8 border-t border-white/10 flex justify-between items-center">
+          <p className="text-gray-500 text-sm">
+            © {new Date().getFullYear()} i-Team Digital. Tous droits réservés.
+          </p>
+
+          <button
+            onClick={retourHaut}
+            className="p-3 rounded-full bg-linear-to-r from-blue-500/20 to-cyan-500/20"
+          >
+            <ArrowUp className="w-5 h-5 text-gray-400 hover:text-cyan-400" />
+          </button>
+        </div>
+{/* Newsletter */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

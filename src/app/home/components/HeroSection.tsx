@@ -24,22 +24,22 @@ interface HeroSectionProps {
 
 const stats = [
   { 
-    valeur: "250+", 
-    label: "Projets Réalisés", 
-    icone: <Rocket />, 
-    changement: "+25%" 
+    valeur: "30", 
+    label: "Clients", 
+    icone: <Users />, 
+    changement: "+20%" 
   },
   { 
-    valeur: "99%", 
+    valeur: "98%", 
     label: "Satisfaction Client", 
     icone: <Heart />, 
     changement: "+5%" 
   },
   { 
-    valeur: "50+", 
-    label: "Experts", 
-    icone: <Users />, 
-    changement: "+10" 
+    valeur: "7", 
+    label: "Projets Réalisés", 
+    icone: <Rocket />, 
+    changement: "+3"
   },
   { 
     valeur: "24/7", 
@@ -48,6 +48,7 @@ const stats = [
     changement: "Toujours" 
   }
 ];
+
 
 export const HeroSection = ({ heroOpacity, heroScale }: HeroSectionProps) => {
   return (
@@ -126,7 +127,7 @@ const Slogan = () => {
         <Sparkles className="w-5 h-5 text-blue-400" />
       </motion.div>
       <span className="text-sm font-semibold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-        Leaders en Innovation Digitale depuis 2020
+        Leaders en Innovation Digitale depuis 2024
       </span>
     </motion.div>
   );
