@@ -5,6 +5,13 @@ import { motion } from "framer-motion";
 import { Sparkles, Code2, Cpu, GitBranch, Database, Layers, Globe } from "lucide-react";
 import { GradientText } from "@/components/ui/GradientText";
 import { TechCard } from "../components/TechCard";
+import IllusIcon from "../../../../public/icons/IllusIcon";
+import AfterEffectIcon from "../../../../public/icons/AfterEffectIcon";
+import PsIcon from "../../../../public/icons/PsIcon";
+import PremiereProIcon from "../../../../public/icons/PremiereProIcon ";
+import FigmaIcon from "../../../../public/icons/FigmaIcon";
+import AdobeXDIcon from "../../../../public/icons/AdobeXDIcon";
+
 
 interface TechItem {
   icone: React.ReactNode;
@@ -13,12 +20,14 @@ interface TechItem {
 }
 
 const techStack: TechItem[] = [
-  { icone: <Code2 className="w-8 h-8" />, nom: "TypeScript", couleur: "text-blue-500" },
-  { icone: <Cpu className="w-8 h-8" />, nom: "React", couleur: "text-cyan-400" },
-  { icone: <GitBranch className="w-8 h-8" />, nom: "Next.js", couleur: "text-white" },
-  { icone: <Database className="w-8 h-8" />, nom: "MongoDB", couleur: "text-green-500" },
-  { icone: <Layers className="w-8 h-8" />, nom: "Docker", couleur: "text-blue-400" },
-  { icone: <Globe className="w-8 h-8" />, nom: "Python", couleur: "text-yellow-400" },
+  { icone: <PsIcon />, nom: "Adobe Photoshop", couleur: "text-white-500" },
+  { icone: <IllusIcon/>, nom: "Adobe Illustator", couleur: "text-white" },
+  { icone: <PremiereProIcon />, nom: "Adobe Premire Pro", couleur: "text-white-500" },
+  { icone: <AfterEffectIcon/>, nom: "After Effect", couleur: "text-white-500" },
+  { icone: <FigmaIcon/>, nom: "Figma", couleur: "text-white-500" },
+  { icone: <AdobeXDIcon/>, nom: "Adobe XD", couleur: "text-white-500" },
+  
+
 ];
 
 export const TechStackSection = () => {
